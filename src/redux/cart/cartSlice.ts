@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { CartState } from "../../interface/cartState";
-import { addItem } from "./cartHelper";
+import { addItem, removeItem } from "./cartHelper";
 import { Productos } from "../../interface/Productos";
 
 
@@ -17,10 +17,13 @@ export const cartSlice = createSlice({
     reducers: {
         addToCart: ( state: CartState, action:PayloadAction<Productos>) =>{
             state.cartItems = addItem(state , action.payload);
+        },
+        removeToCart:( state:CartState, action:PayloadAction<Productos>) =>{
+            state.cartItems = removeItem(state , action.payload);
         }
     },
 });
 
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, removeToCart } = cartSlice.actions;
 export default cartSlice.reducer;
