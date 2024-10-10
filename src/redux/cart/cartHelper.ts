@@ -1,34 +1,46 @@
 import { CartState } from "../../interface/cartState";
 import { Productos } from "../../interface/Productos";
 
-export const addItem = ( state:CartState , producto:Productos)=>{
-    const existingProductIndex = state.cartItems.findIndex( item => item.id === producto.id);
+export const addItem = ({ cartItems }: CartState, producto: Productos) => {
 
-    console.log(existingProductIndex)
-    if(existingProductIndex !== -1){
-        console.log(existingProductIndex)
-        const existingProduct = state.cartItems[existingProductIndex];
-        existingProduct.cantidad = (existingProduct.cantidad || 0) + 1;
+    const newCartItem = [...cartItems]
+    const index = newCartItem.findIndex(item => item.id === producto.id);
 
-    }else{
-        state.cartItems.push({...producto, cantidad:1})
+    if (index !== -1) {
+        newCartItem[index] = {
+            ...newCartItem[index],
+            cantidad: (newCartItem[index].cantidad || 0) + 1
+        };
+    } else {
+        newCartItem.push({ ...producto, cantidad: 1 });
     }
-    
-    
-    return state.cartItems;
+
+    return newCartItem;
 }
 
 
-export const removeItem = ( state:CartState, producto:Productos)=>{
+export const removeItem = ({ cartItems }: CartState, producto: Productos) => {
 
-    const existingProductIndex = state.cartItems.findIndex( item => item.id === producto.id);
+    const newCartItem = [...cartItems];
+    const index = newCartItem.findIndex(item => item.id === producto.id);
 
-    if(existingProductIndex !== -1) {
-        const existingProduct = state.cartItems[existingProductIndex];
-        existingProduct.cantidad = (existingProduct.cantidad || 1) -1;
-    }else{
-        state.cartItems.splice(existingProductIndex, 1);
+    if (index !== -1) {
+        newCartItem[index] = {
+            ...newCartItem[index],
+            cantidad: (newCartItem[index].cantidad || 1) - 1
+        };
+    } else {
+        newCartItem.splice(index, 1);
     }
 
-    return state.cartItems
+
+    return newCartItem;
+}
+
+export const resetCost = ({ cartItems, cost }: CartState) => {
+    if (cartItems.length === 1 && cartItems[0].cantidad === 1) {
+        return 0
+    }
+
+    return cost
 }
