@@ -33,9 +33,21 @@ export const removeItem = ({ cartItems }: CartState, producto: Productos) => {
         newCartItem.splice(index, 1);
     }
 
-
     return newCartItem;
 }
+
+export const sendCost = ({cartItems}:CartState) => {
+   
+   const montoGratis= 10000;
+   const costoEnvio= 2000;
+
+   const total = cartItems.reduce((acc,producto)=> acc + (producto.precio * (producto.cantidad || 0)),0)
+
+  return total >= montoGratis
+   ?0
+   :cartItems.reduce((acc,producto)=> acc + ((producto.cantidad|| 0) * costoEnvio),0)
+
+};
 
 export const resetCost = ({ cartItems, cost }: CartState) => {
     if (cartItems.length === 1 && cartItems[0].cantidad === 1) {
