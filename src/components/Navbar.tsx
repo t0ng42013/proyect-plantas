@@ -1,10 +1,9 @@
 import { NavLink } from "react-router-dom"
 import { NavItem } from "../interface/NavItem";
 
-import style from "../style/navbar.module.css";
-import '../index.css'
+import styles from "../style/navbar.module.css";
 
-const navItems:NavItem[] = [
+export const navItems:NavItem[] = [
     { path: '/', label: 'Home' },
     { path: '/plants', label: 'Plantas' },
     { path: '/about', label: 'Nosotros' },
@@ -15,11 +14,11 @@ const navItems:NavItem[] = [
 export const Navbar = () => {
     return (
         <nav>
-            <ul>
+            <ul className={styles.links}>
                 {
                     navItems.map(({ path, label }) => (
-                        <li key={label} className={``} >
-                            <NavLink className={({ isActive }) => `header__nav-link ${isActive ? style.active : ''}`} to={path}>
+                        <li key={label}  >
+                            <NavLink className={({ isActive }) => ` ${isActive ? styles.active : ''}`} to={path}>
                                 {label}
                             </NavLink>
                         </li>
