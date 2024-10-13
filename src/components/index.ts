@@ -1,8 +1,9 @@
 export { Account } from "./Account";
-
+export { Buttons } from "./Buttons";
+export { Card } from "./Card";
+export { CardBlog } from "./CardBlog";
+export { CardComments } from "./CardComments";
 export { Cart } from "./Cart";
-
+export { Hero } from "./Hero";
 export { Logo } from "./Logo";
-
 export { Navbar } from "./Navbar";
-

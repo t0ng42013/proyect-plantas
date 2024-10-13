@@ -1,0 +1,45 @@
+.serviContainer{
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px;
+width: min(100%, 350px);
+}
+
+.servicios{
+    background-color: #d9d4c9;
+    color: #050505;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 64px 0;
+
+}
+
+.servTitle{
+    width: max(150px, 100%);
+}
+.icon{
+    border-radius: 50%;
+    background-color: rgb(93, 151, 95);
+    
+    width: 52px;
+    height: 52px;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title{
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 0;
+}
+.subTitle{
+    font-size: 15px;
+    text-transform: capitalize;
+    color: #3d3a3a;
+}

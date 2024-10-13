@@ -1,14 +1,14 @@
-import { BiCartAdd } from "react-icons/bi"
-import { useDispatch } from "react-redux"
 import { useAppSelector } from "../hooks/hooks";
+import { useDispatch } from "react-redux"
 import { toggleCart } from "../redux/cart/cartSlice";
-
+import { BiCartAdd } from "react-icons/bi"
 import { IoClose } from "react-icons/io5";
+
 import style from '../style/navbar.module.css';
 
 export const Cart = () => {
-    const  isCartHidden  = useAppSelector((state) => state.cart.hidden);
-    const  cartItem  = useAppSelector((state) => state.cart.cartItems);
+    const isCartHidden = useAppSelector((state) => state.cart.hidden);
+    const cartItem = useAppSelector((state) => state.cart.cartItems);
     const dispatch = useDispatch();
 
     return (
@@ -22,9 +22,9 @@ export const Cart = () => {
                     <BiCartAdd size={32} />
                 </div>
 
-                { isCartHidden && (<CartModal  />) }
+                {isCartHidden && (<CartModal />)}
             </div>
-            
+
         </>
     )
 }
@@ -34,7 +34,7 @@ export const Cart = () => {
 const CartModal = () => {
     const isCartItem = useAppSelector((state) => state.cart.cartItems);
     const dispatch = useDispatch();
-    
+
     return (
         <>
             <div className={style.cartModal}>
@@ -43,16 +43,16 @@ const CartModal = () => {
 
                 <div className={style.modalContent}>
                     {
-                    !isCartItem.length
-                        ?<p>carro vacio</p>
-                        :'kasjdka'
+                        !isCartItem.length
+                            ? <p>carro vacio</p>
+                            : 'kasjdka'
                     }
                 </div>
                 <button className={style.modalButton}>
                     {
                         !isCartItem.length
-                        ? <a href="/plantas">Seguir Comprando</a>
-                        : <a href="#">Comprar</a>
+                            ? <a href="/plantas">Seguir Comprando</a>
+                            : <a href="#">Comprar</a>
                     }
                 </button>
             </div>

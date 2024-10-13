@@ -1,10 +1,9 @@
 
 import { useEffect, useState } from 'react';
-import { Footer, Header, Navbars } from '../container';
+import { Blog, Comments, Footer, Header, Navbars, Products, Services, Story } from '../container';
+import { Hero } from '../components/Hero';
 
 import style from '../style/navbar.module.css';
-import styleHero from '../style/home.module.css';
-
 
 export const Home = () => {
     const [message, setMessage] = useState(false);
@@ -15,7 +14,6 @@ export const Home = () => {
         }, 3000); // Cambiar cada 3 segundos
 
         // Limpieza al desmontar el componente
-        console.log('desmontar el componente')
         return () => clearInterval(intervalId);
     }, []);
 
@@ -33,8 +31,13 @@ export const Home = () => {
                 <Navbars></Navbars>
             </Header>
             <main>
-                <div className={styleHero.hero}></div>
-                <h1>body</h1>
+                <Hero />
+                <Products />
+                <Story />
+                <Comments />
+                <Blog />
+                <Services />
+
             </main>
             <Footer />
         </>

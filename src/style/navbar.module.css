@@ -1,5 +1,6 @@
 .header{
     margin-top: 60px;
+    min-width: 320px;
 }
 
 .active{
@@ -50,6 +51,7 @@ color: #be5a09;
 .slides{
     position: absolute;
     top: 0;
+    min-width: 320px;
     text-align: center;
     width: 100%;
     height: 60px;
@@ -85,6 +87,7 @@ color: #be5a09;
     justify-content: space-between;
     align-items: center;
     position: relative;
+    padding: 0 clamp(10px,2vw,30px);
 }
 
 .links{
@@ -195,6 +198,7 @@ color: #be5a09;
 .menu,.close,.linksMobile{
     display: none;
 }
+
 /* mobile */
 
 @media(max-width:767px){
