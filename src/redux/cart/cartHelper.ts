@@ -1,4 +1,4 @@
-import { CartState } from "../../interface/cartState";
+import { CartState } from '../../interface/cartState';
 import { Productos } from "../../interface/Productos";
 
 export const addItem = ({ cartItems }: CartState, producto: Productos) => {
@@ -29,11 +29,12 @@ export const removeItem = ({ cartItems }: CartState, producto: Productos) => {
             ...newCartItem[index],
             cantidad: (newCartItem[index].cantidad || 1) - 1
         };
-    } else {
-        newCartItem.splice(index, 1);
-    }
-
-    return newCartItem;
+        if(newCartItem[index].cantidad === 0) {
+            newCartItem.splice(index, 1);
+        }
+        return newCartItem;
+    } 
+    return cartItems
 }
 
 export const sendCost = ({cartItems}:CartState) => {
@@ -56,3 +57,4 @@ export const resetCost = ({ cartItems, cost }: CartState) => {
 
     return cost
 }
+

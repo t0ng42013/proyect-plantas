@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux"
 import { toggleCart } from "../redux/cart/cartSlice";
 import { BiCartAdd } from "react-icons/bi"
 import { IoClose } from "react-icons/io5";
+import { CartModalItem } from "./CartModalItem";
+
 
 import style from '../style/navbar.module.css';
 
@@ -45,7 +47,7 @@ const CartModal = () => {
                     {
                         !isCartItem.length
                             ? <p>carro vacio</p>
-                            : 'kasjdka'
+                            : <CartModalItem />
                     }
                 </div>
                 <button className={style.modalButton}>

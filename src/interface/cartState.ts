@@ -3,7 +3,7 @@ import { Productos } from "./Productos";
 
 export interface CartState{
     cartItems: Productos[],
-    count: number,
+    modal: boolean,
     cost: number,
     hidden: boolean
 }

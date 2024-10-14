@@ -13,7 +13,7 @@ export const Footer = () => {
       <div className={style['footer__container-nav']}>
         <ul>
           {navItems.map(({path,label})=>(
-            <NavLink className={({isActive})=>`${isActive?styleNav.active:''}`} to={path}>{label}</NavLink>
+            <NavLink key={label} className={({isActive})=>`${isActive?styleNav.active:''}`} to={path}>{label}</NavLink>
           ))}
         </ul>
       </div>

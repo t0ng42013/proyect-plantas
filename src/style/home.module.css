@@ -30,7 +30,8 @@ align-items: center;
 .newProduct{
     padding:0 clamp(10px,2.5%, 40px);
     padding-top: clamp( 50px, 10vw ,103px);
-     background-color: #d9d4c9;
+    padding-bottom: clamp( 50px, 10vw ,103px);
+    background-color: #d9d4c9;
 }
 .newProductTitle{
     display: flex;

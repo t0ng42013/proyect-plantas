@@ -6,7 +6,7 @@ import { Productos } from "../../interface/Productos";
 
 const INITIALSTATE: CartState = {
     cartItems: [],
-    count: 0,
+    modal: false,
     cost: 0,
     hidden: false,
 };
@@ -41,10 +41,16 @@ export const cartSlice = createSlice({
                 ...state,
                 hidden: !state.hidden
             }
-        }
+        },
+        toggleModal: (state:CartState) => {
+            return {
+                ...state,
+                modal: !state.modal
+            }
+        },
     },
 });
 
 
-export const { addToCart, removeToCart, clearCart, toggleCart } = cartSlice.actions;
+export const { addToCart, removeToCart, clearCart, toggleCart, toggleModal } = cartSlice.actions;
 export default cartSlice.reducer;

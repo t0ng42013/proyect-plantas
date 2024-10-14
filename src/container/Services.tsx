@@ -41,10 +41,15 @@ const Service = ({ icon, title, subTitle }: Props) => {
 }
 
 export const Services = () => {
-  return (
-      <div className={style.servicios}>
-          {Servicios.map(servicios => <Service key={servicios.title} {...servicios} />)}
-      </div>
-  )
-  
+    return (
+        <>
+            <hr />
+            <div className={style.servicios}>
+                {Servicios.map(servicios => <Service key={servicios.title} {...servicios} />)}
+            </div>
+            <hr />
+        </>
+
+    )
+
 }

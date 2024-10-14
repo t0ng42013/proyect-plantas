@@ -1,0 +1,33 @@
+.containerList{
+    width: 100%;
+}
+.containerProd{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.descriptionProduct{
+    display: flex;
+    align-items: center;    
+}
+
+.quantityContainer{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button{
+    width: 20px;
+    padding: 0 !important;
+
+}
+.totalContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    bottom: 0;
+}

@@ -2,7 +2,6 @@
     width: 100%;
     max-width: 350px; 
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     position: relative;
 }
 
@@ -105,12 +104,27 @@
 .productText{
     font-size: 16px;
     font-family: 'questrial';
+    color: #4a4a4a;
 }
 .productUser{
     display: flex;
     justify-content: space-between;
+    color: #4a4a4a;
 }
 .productWatch{
     display: flex;
     gap: 10px;
+}
+
+.addToCartLight{
+    composes: addToCart;
+    color: #fff;
+    border-color: #fff;
+    &:hover{
+        color: #be5a09;
+        border-color: #be5a09;
+    }
+}
+.productNameLight{
+    color: #fff;
 }

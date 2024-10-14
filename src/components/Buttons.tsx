@@ -1,11 +1,16 @@
 
+
 interface IProps {
     txt: string;
     className?: string;
+    onClick?: () => void;
 }
 
-export const Buttons = ({ txt, className }: IProps) => {
+export const Buttons = ({ txt, className, onClick }: IProps) => {
+    
     return (
-        <button className={className}>{txt}</button>
+        <button        
+            onClick={onClick}
+            className={className}>{txt}</button>
     )
 }

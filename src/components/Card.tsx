@@ -1,10 +1,29 @@
+import { useAppDispatch } from '../hooks/hooks';
+import { addToCart, toggleModal } from '../redux/cart/cartSlice';
+import { Productos } from '../interface/Productos';
 import { Buttons } from './Buttons';
+
+
+interface Card{
+   item:Productos;
+   dark?:boolean; 
+}
 
 
 import style from '../style/card.module.css';
 
+export const Card = ({item, dark}:Card) => {
+    const dispatch = useAppDispatch();
 
-export const Card = () => {
+    const handleCart = ()=>{
+        dispatch(addToCart(item));
+        dispatch(toggleModal());
+        setTimeout(() => {
+            dispatch(toggleModal());
+        }, 2000);
+
+    }
+
     return (
         <article className={style.productCard}>
             <figure className={style.productImg}>
@@ -12,9 +31,12 @@ export const Card = () => {
                 <span className={style.badge}>Récien llegado</span>
             </figure>
             <div className={style.productInfo}>
-                <h2 className={style.productName}>Nombre</h2>
-                <p className={style.productPrice}>price</p>
-                <Buttons className={style.addToCart} txt='Agregar al carrito' />
+                <h2 className={`${!dark ? style.productName : style.productNameLight}`}>{item.nombre}</h2>
+                <p className={`${!dark ? style.productPrice : style.productNameLight}`}>{item.precio}</p>
+                <Buttons
+                    onClick={handleCart}
+                    className={`${!dark ? style.addToCart : style.addToCartLight} `}
+                    txt='Agregar al carrito' />
             </div>
         </article>
     )
