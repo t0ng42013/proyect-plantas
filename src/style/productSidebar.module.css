@@ -112,20 +112,23 @@
 .collections__price-range{
     position: relative;
     height: 2px;
-    background:gray ;
-    input{
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
+}
+
+input[type='range'] {
+    position: absolute;
+    width: 50%;
+    top: 0;
+}
+
+
+.rangeMin{
+    left: 0;
     height: 2px;
-    background: transparent;
-    vertical-align: top;
-    pointer-events: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    }
-    
+}
+.rangeMax{
+    right: 0;
+    height: 2px;
 }
 
 .collections__filter-order,h2{
