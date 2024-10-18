@@ -14,7 +14,12 @@ ul{
     li{
         list-style: none;
     }
-    
+    @media (max-width: 480px){
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        gap: 20px;
+    }
 }
 a{
     padding: 0 20px;
@@ -46,6 +51,10 @@ a{
         color: #666;
         box-sizing: border-box;
         background-color: aliceblue;
+
+        @media (max-width: 768px) {
+            width: 100%;
+        }
     }
 
     div{
@@ -68,6 +77,11 @@ a{
     border-radius: 0px;
     text-transform: capitalize;
     cursor: pointer;
+
+    @media (max-width: 480px) {
+        width: 100%;
+        margin:30px auto;
+    }
 }
 .hr{
     width: 100%;

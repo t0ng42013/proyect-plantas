@@ -1,0 +1,108 @@
+/* Contact Page Styles */
+
+/* Block: contact-page */
+.contact-page {
+  padding: 45px;
+  width: min(100%, 1250px);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-page__form {
+    width: 65%;
+
+  textarea{
+    height: 150px;
+  } 
+}
+.contact-page__form-content{
+display: flex;
+flex-direction: column;
+button{
+    width: 200px;
+}
+}
+
+.contact-page__form-header {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+.contact-page__form-group{
+    display: flex;
+    gap: 20px;
+    input:nth-child(1){
+        width: 50%;
+    }
+    input:nth-child(2){
+            flex-grow: 1;
+    }
+}
+.contact-page__form-element {
+  /* Styles for each form element (input, textarea) */
+margin-bottom: 30px;
+padding: 20px;
+resize: none;
+}
+
+
+.contact-page__info {
+  padding: 0 75px;
+}
+
+.contact-page__info-header {
+  /* Styles for the information section header */
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.contact-page__info-details {
+  /* Styles for the contact details (phone, email) */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+
+  p{
+    font-weight: 800;
+  }
+
+  p:nth-child(1),p:nth-child(3)>span>a{
+    color: var(--color-accent);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  span{
+    font-weight: 400; 
+    padding-left: 5px;   
+  }
+  
+  
+}
+
+.contact-page__info-social {
+  /* Styles for the social media icons */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
+}
+.contact-page__info-social-icon{
+    border: 1px solid var(--color-accent2);
+    border-radius: 50%;
+    color: var(--color-accent2);
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+}
+.contact-page__info-social-icon:hover{
+    transition: all .5s;
+    border: 2px solid var(--color-accent);
+    color: var(--color-accent);
+    cursor: pointer;
+}
+.contact-page__section {
+  /* Additional section styles if needed */
+}

@@ -1,7 +1,13 @@
 .collections__sidebar{
     min-width: 300px;
     h2{
-        padding: 0 75px 0 20px;
+        padding-left: 20px;
+        font-size: clamp(18px,2vw, 20px ) ;
+
+        @media (max-width: 768px){
+            font-size: 14px;
+            padding: 0;
+        }
     }
     select{
             text-overflow: ellipsis;  
@@ -133,4 +139,32 @@ input[type='range'] {
 
 .collections__filter-order,h2{
     padding-bottom: 20px;
+}
+
+
+@media (max-width: 768px){
+    .collections__Form-filter > div:nth-child(1),
+    .collections__sidebar > form > div:nth-child(1){
+        
+        display: none;
+    }
+
+    .collections__Form-filter{
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+        padding: 0;
+    }
+    
+    .filterMobile{
+        font-size: clamp(14px, 1vw, 18px) ;
+        text-align: center;
+       
+        
+
+        select{
+            font-size: clamp(12px, 1vw, 18px) ;
+            width: 180px;
+        }
+    }
 }

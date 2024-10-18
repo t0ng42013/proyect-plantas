@@ -22,7 +22,7 @@ export const RouteNavigation = () => {
                 </nav>
                 <hr />
 
-            <section className={`${style.content} ${style.contentPlants}`}>
+            {/* <section className={`${style.content} ${style.contentPlants}`}>
                     <div className={style['image-container']}>
                         <picture>
                             <img src="./plantasDeco.png" alt='Decoración de Plantas' className={style['content-image']} />
@@ -34,7 +34,7 @@ export const RouteNavigation = () => {
                             <h1 className={style['page-title']}>{url== 'Contacto' ? '¿Preguntas? ¿Comentarios?' :url}</h1>
                         </div>
                     </div>
-                </section>
+                </section> */}
             </>
        
     )

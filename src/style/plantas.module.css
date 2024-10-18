@@ -4,12 +4,14 @@
     width: min(100%,2000px);
     padding: 0 clamp(10px, 2vw, 30px);
     margin: auto;
+
 }
 .containerCard{
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
-    
+    padding-left: 10px;
+    justify-content: center;
 }
 .bg{
     position: fixed;
@@ -19,4 +21,13 @@
     top: 0;
     left: 0;
     background-color: #050505;
+}
+
+@media screen and (max-width: 768px){
+    .conatiner{
+        flex-direction: column;
+    }
+    .containerCard{
+        padding-left: 0;
+    }
 }
