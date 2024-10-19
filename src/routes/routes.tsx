@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Home } from "../page/Home";
 import {  Suspense } from "react";
-import { NotFound, Plantas } from "../page";
+import { About, NotFound, Plantas } from "../page";
 import { Layout } from "../container/Layout";
 import { Log} from "../components/Log";
+import { Contact } from "../page/Contact";
 
 const routes = [
     {
@@ -19,7 +20,7 @@ const routes = [
                 Component: Plantas 
             }, {
                 path: '/about',
-                Component: Home
+                Component: About
             },
             {
                 path: '/login',
@@ -28,7 +29,10 @@ const routes = [
             {
                 path: '/signup',
                 Component: Home
-            },
+            },{
+                path: '/contact',
+                Component: Contact
+            }
         ]
     },    
     {

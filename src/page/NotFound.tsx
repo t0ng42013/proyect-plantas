@@ -22,6 +22,7 @@ const handleNavigate = () =>{
           <h1 className={style['text-6xl']}>Oops! Page not found</h1>
           <p className={style['text-2xl']}>
             Oops! The page you are looking for does not exist. It might have been moved or deleted.
+            <img src="https://plantasdeinteriores.com/wp-content/uploads/por-que-se-marchita-mi-planta-de-interior-7-causas-y-soluciones-1.jpg" alt="askldj" />
           </p>
           <button
           onClick={handleNavigate}

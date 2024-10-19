@@ -3,11 +3,13 @@
 
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { Buttons } from "../components";
-import style from "../styles/contact.module.css";
+
+import style from "../style/contact.module.css";
+
 
 export const Contact = () => {
   return (
-    <>
+    <section className={style['contactPageContainer']}>
           <section className={style['contact-page__form']}>
               <h4 className={style['contact-page__form-header']}>Déjanos un correo</h4>
 
@@ -42,6 +44,6 @@ export const Contact = () => {
           <section className={style['contact-page__section']}>
               {/* Puedes agregar contenido adicional aquí */}
           </section>
-    </>
+    </section>
   )
 }

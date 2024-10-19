@@ -25,6 +25,9 @@
     width: min(100%,1200px);
     margin: auto;
 display: flex;
+    @media (max-width: 1024px) {
+        display: block;
+    }
 }
 
 .ourStory{
@@ -48,6 +51,18 @@ display: flex;
     p{
         margin-bottom: 20px;
         line-height: 1.65rem;
+    }
+
+    @media (max-width: 1024px){
+        display: block;
+        max-width: 100%;
+        padding: clamp(60px, 4vw, 120px) clamp( 40px, 4vw, 80px);
+        h3{
+            font-size: clamp(25px, 2vw , 40px);;
+        }
+        p{
+            font-size: clamp(16px, 2vw, 20px);
+        }
     }
    
 }

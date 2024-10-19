@@ -1,5 +1,12 @@
 /* Contact Page Styles */
+.contactPageContainer{
 
+display: flex;
+
+@media (max-width: 1024px) {
+    flex-direction: column-reverse;
+  }
+}
 /* Block: contact-page */
 .contact-page {
   padding: 45px;
@@ -12,6 +19,14 @@
 
 .contact-page__form {
     width: 65%;
+    padding: clamp(25px, 2vw, 40px) ;
+    @media (max-width: 1024px) {
+      width: 80%;
+      margin: auto;
+    }
+    @media(max-width:768px){
+      padding: 0;
+    }
 
   textarea{
     height: 150px;
@@ -38,6 +53,15 @@ button{
     input:nth-child(2){
             flex-grow: 1;
     }
+
+    @media (max-width: 575px) {
+      flex-direction: column;
+      gap: 0;
+      width: 100%;
+        input:nth-child(1){
+        width: 100%;
+    }
+    }
 }
 .contact-page__form-element {
   /* Styles for each form element (input, textarea) */
@@ -48,7 +72,7 @@ resize: none;
 
 
 .contact-page__info {
-  padding: 0 75px;
+  padding: 0 clamp(20px, 4vw ,75px);
 }
 
 .contact-page__info-header {
