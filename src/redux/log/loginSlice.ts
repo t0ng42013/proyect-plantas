@@ -5,7 +5,7 @@ log: boolean;
 token: string;
 }
 const INITIAL_STATE:Log = {
-log: true,
+log: false,
 token: ''
 };
 

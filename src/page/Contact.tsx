@@ -5,9 +5,11 @@ import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { Buttons } from "../components";
 
 import style from "../style/contact.module.css";
+import { useScrollTo } from "../hooks/useScroll";
 
 
 export const Contact = () => {
+    useScrollTo();
   return (
     <section className={style['contactPageContainer']}>
           <section className={style['contact-page__form']}>

@@ -1,6 +1,7 @@
 /* Contact Page Styles */
 .contactPageContainer{
-
+ max-width: 1920px;
+ margin: auto;
 display: flex;
 
 @media (max-width: 1024px) {

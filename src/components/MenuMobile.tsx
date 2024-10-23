@@ -3,14 +3,16 @@ import { navItems } from '../utils/navItems';
 
 import style from "../style/navbar.module.css"
 
-export const MenuMobile = () => {
+export const MenuMobile = ({toggleMenu}:{toggleMenu:()=>void}) => {
+
+
     return (
         <>
             <ul className={style.linksMobile}>
                 {
                     navItems.map(({ path, label }) => (
                         <li key={label} className={style.linkMobile}>
-                            <NavLink className={({ isActive }) => `${isActive && style.activeMobile}`} to={path}>{label}</NavLink>
+                            <NavLink onClick={toggleMenu} className={({ isActive }) => `${isActive && style.activeMobile}`} to={path}>{label}</NavLink>
                         </li>
                     ))
                 }

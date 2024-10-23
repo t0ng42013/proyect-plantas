@@ -9,7 +9,7 @@ import style from "../style/navbar.module.css"
 export const Navbars = () => {
 
     const [modal, setModal] = useState(false);
-    const toggleMenu = () => { setModal((prevModal) => !prevModal) };
+    const toggleMenu = () => { setModal((prevModal) => !prevModal ) };
 
     useEffect(() => {
     
@@ -37,7 +37,7 @@ export const Navbars = () => {
                             onClick={toggleMenu}
                             size={32}
                         />
-                        <MenuMobile />
+                        <MenuMobile toggleMenu={toggleMenu} />
                         <div className={style.overlay} onClick={toggleMenu}></div>
                     </>
                     )}

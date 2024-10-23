@@ -7,6 +7,8 @@ import styles from "../style/navbar.module.css";
 
 
 export const Navbar = () => {
+
+
     return (
         <nav>
             <ul className={styles.links}>

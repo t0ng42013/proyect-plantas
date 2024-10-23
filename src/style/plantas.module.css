@@ -22,7 +22,11 @@
     left: 0;
     background-color: #050505;
 }
-
+.showMore{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 @media screen and (max-width: 768px){
     .conatiner{
         flex-direction: column;
