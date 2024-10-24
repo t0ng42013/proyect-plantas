@@ -3,55 +3,58 @@ import { Productos } from "../../interface/Productos";
 
 export const addItem = ({ cartItems }: CartState, producto: Productos) => {
 
-    const newCartItem = [...cartItems]
-    const index = newCartItem.findIndex(item => item.id === producto.id);
+    const index = cartItems.findIndex(item => item.id === producto.id)
 
     if (index !== -1) {
-        newCartItem[index] = {
-            ...newCartItem[index],
-            cantidad: (newCartItem[index].cantidad || 0) + 1
-        };
+        if (cartItems[index].stock > 0) {
+            cartItems[index].quantity = (cartItems[index].quantity || 0) + 1
+            cartItems[index].stock = (cartItems[index].stock || 0) - 1
+        }
     } else {
-        newCartItem.push({ ...producto, cantidad: 1 });
-    }
 
-    return newCartItem;
+        if (producto.stock > 0) {
+            cartItems.push({
+                ...producto,
+                quantity: 1,
+                stock: (producto.stock || 0) - 1
+            })
+        }
+
+    }
+    return cartItems;
 }
 
 
 export const removeItem = ({ cartItems }: CartState, producto: Productos) => {
 
-    const newCartItem = [...cartItems];
-    const index = newCartItem.findIndex(item => item.id === producto.id);
+    const index = cartItems.findIndex(item => item.id === producto.id)
 
     if (index !== -1) {
-        newCartItem[index] = {
-            ...newCartItem[index],
-            cantidad: (newCartItem[index].cantidad || 1) - 1
-        };
-        if(newCartItem[index].cantidad === 0) {
-            newCartItem.splice(index, 1);
+        if (cartItems[index].quantity === 1) {
+            cartItems.splice(index, 1)
+        } else {
+            cartItems[index].quantity = (cartItems[index].quantity || 1) - 1
+            cartItems[index].stock = (cartItems[index].stock || 0) + 1
         }
-        return newCartItem;
-    } 
+    }
     return cartItems
 }
 
-export const sendCost = ({cartItems}:CartState) => {
-   
-   const montoGratis= 10000;
-   const costoEnvio= 2000;
+export const sendCost = ({ cartItems }: CartState) => {
 
-   const total = cartItems.reduce((acc,producto)=> acc + (producto.precio * (producto.cantidad || 0)),0)
+    const montoGratis = 10000;
+    const costoEnvio = 2000;
 
-  return total >= montoGratis
-   ?0
-   :cartItems.reduce((acc,producto)=> acc + ((producto.cantidad|| 0) * costoEnvio),0)
+    const total = cartItems.reduce((acc, producto) => acc + (producto.price * (producto.quantity || 0)), 0)
+
+    return total >= montoGratis
+        ? 0
+        : cartItems.length * costoEnvio
 
 };
 
 export const resetCost = ({ cartItems, cost }: CartState) => {
-    if (cartItems.length === 1 && cartItems[0].cantidad === 1) {
+    if (cartItems.length === 1 && cartItems[0].quantity === 1) {
         return 0
     }
 

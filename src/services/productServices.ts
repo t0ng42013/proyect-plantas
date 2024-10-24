@@ -4,7 +4,7 @@ import api from "./api";
 
 
 export const getProduct = async():Promise<Productos[]> =>{
-    const response = await api.get('/products');
+    const response = await api.get('/product');
     return response.data;
 
 }

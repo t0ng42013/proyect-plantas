@@ -128,3 +128,15 @@
 .productNameLight{
     color: #fff;
 }
+
+button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+
+    &:hover {
+        background-color: #cccccc;
+        color: #666666;
+        cursor: no-drop;
+    }
+}

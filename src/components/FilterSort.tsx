@@ -3,22 +3,30 @@
 
 
 import { useEffect, useState } from 'react';
-import { useAppDispatch } from '../hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../hooks/hooks';
 import { filterSortBy } from '../redux/filter/filterSlice';
 import style from '../style/productSidebar.module.css'
 
 export const FilterSort = () => {
+    const {data} = useAppSelector(state => state.products);
     const dispatch = useAppDispatch();
     const [value, setValue] = useState('title-ascending')
 
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setValue(e.target.value)
-        dispatch(filterSortBy(value));
+        dispatch(filterSortBy({
+            data,
+            sortBy: value
+        }));
     }
 
     useEffect(() => {
-        dispatch(filterSortBy(value));
-    }, [value, dispatch])
+        dispatch(filterSortBy({
+            data,
+            sortBy: value
+        }));
+        console.log('fil')
+    }, [value, dispatch,data])
 
     return (
         <>

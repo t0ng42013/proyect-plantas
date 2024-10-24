@@ -4,8 +4,8 @@ import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 
 
 export const Filter = () => {
-
-    const { agotado, stock } = useAppSelector(state => state.filter);
+    const {data} = useAppSelector((state) => state.products);
+    const filter = useAppSelector(state => state.filter);
     const dispatch = useAppDispatch();
 
   return (
@@ -16,17 +16,19 @@ export const Filter = () => {
           </summary>
           <div>
               <div>
+                
                   <input
-                      type="checkbox"
+                  
+                      type="radio"
                       name="stock"
                       id="Enstock"
-                      onChange={() => dispatch(checkStock())}
+                      onChange={() => dispatch(checkStock(data))}
                   />
-                  <label htmlFor="Enstock">En stock({stock})</label>
+                  <label htmlFor="Enstock">En stock({filter.stock})</label>
               </div>
               <div>
-                  <input type="checkbox" name="agotado" id="agotado" onChange={() => dispatch(outOfStock())} />
-                  <label htmlFor="agotado">Agotado({agotado})</label>
+                  <input type="radio" name="stock" id="agotado"  onChange={() => dispatch(outOfStock(data))} />
+                  <label htmlFor="agotado">Agotado({filter.agotado})</label>
               </div>
           </div>
       </details>

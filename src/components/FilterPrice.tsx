@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { filterByPrice } from "../redux/filter/filterSlice";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import { useAppDispatch } from "../hooks/hooks"
+import { useAppDispatch, useAppSelector } from "../hooks/hooks"
 
 
 import style from '../style/productSidebar.module.css'
@@ -9,17 +9,17 @@ import style from '../style/productSidebar.module.css'
 
 export const FilterPrice = () => {
     const dispatch = useAppDispatch();
-
+    const {data} =useAppSelector( state => state.products)
     const [minPrice, setMinPrice] = useState(50);
     const [maxPrice, setMaxPrice] = useState(3000);
 
     const handleMinPriceChange =(e:ChangeEvent<HTMLInputElement>) => {
         setMinPrice(Number(e.target.value));
-        dispatch(filterByPrice({min:Number(e.target.value), max:maxPrice}))
+        dispatch(filterByPrice({data,min:Number(e.target.value), max:maxPrice}))
     }
      const handleMaxPriceChange =(e:ChangeEvent<HTMLInputElement>) =>{
             setMaxPrice(Number(e.target.value));
-            dispatch(filterByPrice({min:minPrice, max:Number(e.target.value)}))
+            dispatch(filterByPrice({data,min:minPrice, max:Number(e.target.value)}))
         }
   
   return (
