@@ -18,19 +18,22 @@ export const CartModalItem = () => {
                             <li key={item.id} className={style.containerProd}>
                                 <div className={style.descriptionProduct}>
                                     <img width={55} src={img} alt={name} />
-                                    <div>
+                                    <div className={style.descriptiondetail}>
                                         <h3>{name}</h3>
-                                        <span>$ {price}</span>
-                                        <span> cant:{stock}</span>
+                                        <div>${price}</div>                                        
+                                        <span> En stock: {stock}</span>
                                     </div>
                                 </div>
 
                                 <div className={style.quantityContainer}>
-                                    <span onClick={() => dispatch(addToCart(item))} >
-                                        <Buttons txt={'+'} className={style.button} /></span>
-                                    <span>{quantity}</span>
                                     <span onClick={() => dispatch(removeToCart(item))}>
                                         <Buttons txt={'-'} className={style.button} />
+                                    </span>
+
+                                    <span className={style.quantityValue}>{quantity}</span>
+
+                                    <span onClick={() => dispatch(addToCart(item))} >
+                                        <Buttons txt={'+'} className={style.button} />
                                     </span>
                                 </div>
                             </li>

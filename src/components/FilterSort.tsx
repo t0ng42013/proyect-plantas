@@ -25,7 +25,6 @@ export const FilterSort = () => {
             data,
             sortBy: value
         }));
-        console.log('fil')
     }, [value, dispatch,data])
 
     return (

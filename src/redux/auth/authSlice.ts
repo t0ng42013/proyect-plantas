@@ -1,45 +1,88 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {  createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { loginUser,  registerUser } from "../../services/authServices";
+import { ILoginCred } from "../../interface/LoginCredential";
+import { decodeToken, UserData } from "../../services/jwtServices";
 
 interface IAuthState {
     token: string | null;
+    user: UserData | null;///nombre de login
     isAuthenticated: boolean;
-    loading: boolean;
-    user: string | null;
+    isLoading: boolean;
     error: string | null;
 }
 
+const token = localStorage.getItem('token');
+
 const INITIAL_STATE:IAuthState = {
-    token: localStorage.getItem('token'),
-    isAuthenticated: false,
-    loading: false,
-    user: null,
+    token: localStorage.getItem('token') || '',
+    user: token ? decodeToken(token) : null, 
+    isAuthenticated: !!token,
+    isLoading: false,
     error: null,
 };
 
+
+export const login = createAsyncThunk('auth/login', async (credential:ILoginCred)=>{
+    try {
+            const user = await loginUser(credential);
+            return user;
+    } catch (error) {
+            return console.log(error)
+    }
+});
+export const register = createAsyncThunk('auth/register', async (credential:ILoginCred)=>{
+    try {
+        return await registerUser(credential);
+    } catch (error) {
+            return console.log(error)
+    }
+});
 
 const authSlice = createSlice({
     name: 'auth',
     initialState: INITIAL_STATE,
     reducers: {
-        // loginStart: (state) => {
-        // state.loading = true;
-        // state.error = null;
-        // },
-        // loginSuccess: (state, action) => {
-        // state.user = action.payload;
-        // state.loading = false;
-        // state.error = null;
-        // },
-        // loginFail: (state, action) => {
-        // state.loading = false;
-        // state.error = action.payload;
-        // },
-        // logout: (state) => {
-        // state.user = null;
-        // state.loading = false;
-        // state.error = null;
-        // },
+        logout : (state:IAuthState) => {
+            localStorage.removeItem('token');
+            state.token = null;
+            state.isAuthenticated = false;
+            state.user = null;
+        }
+    },
+    extraReducers(builder) {
+        builder
+            // Login cases
+            .addCase(login.pending, (state) => {
+                state.isLoading = true;
+                state.error = null;
+            })
+            .addCase(login.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.token = action.payload?.token ?? null;
+                state.user = decodeToken(action.payload.token);
+                state.isAuthenticated = true;
+            })
+            .addCase(login.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload as string;
+            })
+            // Register cases
+            .addCase(register.pending, (state) => {
+                state.isLoading = true;
+                state.error = null;
+            })
+            .addCase(register.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.token = action.payload.token;
+                state.user = decodeToken(action.payload.token);
+            })
+            .addCase(register.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload as string;
+            })
+          
     },
 });
 
+export const { logout } = authSlice.actions;
 export default authSlice.reducer;

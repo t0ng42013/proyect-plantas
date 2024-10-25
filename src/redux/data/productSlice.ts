@@ -18,7 +18,6 @@ const INITIAL_STATE:DataState = {
 
 export const fetchProducts = createAsyncThunk('products/fetchProducts', async()=>{
     const products = await getProduct();
-    console.log(products)
     return products;
 } )
 

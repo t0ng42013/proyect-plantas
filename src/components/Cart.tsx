@@ -7,19 +7,20 @@ import { CartModalItem } from "./CartModalItem";
 
 
 import style from '../style/navbar.module.css';
+import { Link } from "react-router-dom";
 
 export const Cart = () => {
     const isCartHidden = useAppSelector((state) => state.cart.hidden);
     const cartItem = useAppSelector((state) => state.cart.cartItems);
     const dispatch = useDispatch();
-
+    
     return (
         <>
             <div >
                 <div
                     className={`${style.cart} ${style.acc}`}
                     onClick={() => dispatch(toggleCart())}
-                >
+                    >
                     <span>{cartItem.length}</span>
                     <BiCartAdd size={32} />
                 </div>
@@ -34,6 +35,7 @@ export const Cart = () => {
 
 
 const CartModal = () => {
+    const {token}= useAppSelector((state) => state.auth);
     const isCartItem = useAppSelector((state) => state.cart.cartItems);
     const dispatch = useDispatch();
 
@@ -53,8 +55,13 @@ const CartModal = () => {
                 <button className={style.modalButton}>
                     {
                         !isCartItem.length
-                            ? <a href="/plantas">Seguir Comprando</a>
-                            : <a href="#">Comprar</a>
+                            ? <Link
+                                onClick={() => dispatch(toggleCart())}
+                             to="/products"
+                             >Seguir Comprando</Link>
+                            : token 
+                                ? <Link onClick={() => dispatch(toggleCart())}  to="/orders">Comprar</Link>
+                                : <Link onClick={() => dispatch(toggleCart())}  to="/login" >Comprar</Link>
                     }
                 </button>
             </div>

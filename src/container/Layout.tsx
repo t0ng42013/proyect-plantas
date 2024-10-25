@@ -19,7 +19,7 @@ const nav = useNavigate();
                 <div>
                     {
                         message
-                            ? <p className={`${style.slides} ${style.p1}`} >Envío gratis en compras de más de $1,500</p>
+                            ? <p className={`${style.slides} ${style.p1}`} >Envío gratis en compras de más de $10,000</p>
                             : <p className={`${style.slides} ${style.p2}`}>-15% en la primera compra <button 
                                                                                                     onClick={()=>nav('/login')}
                                                                                                     className={style.buttonR}>Registrarse</button></p>

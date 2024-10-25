@@ -4,6 +4,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media (max-width: 768px) {
+      padding: 20px;
+    }
 }
 .footer__container-nav{
     padding-top: 75px;

@@ -4,8 +4,8 @@ justify-content: center;
 align-items: center;
 gap: 10px;
 width: min(100%, 350px);
-}
 
+}
 .servicios{
     background-color: #d9d4c9;
     color: #050505;
@@ -15,6 +15,10 @@ width: min(100%, 350px);
     gap: 20px;
     padding: 64px 0;
     
+    @media(max-width:1110px){
+        padding-left: 20px;
+        padding-right: 20px;
+    }
     @media (max-width: 768px){
         flex-direction: column;
         gap: 40px;
@@ -31,9 +35,8 @@ width: min(100%, 350px);
             margin-left: auto;
         }
     }
-    @media (max-width: 480px){
+    @media (max-width: 480px){    
         article{
-
             margin:0 !important;
         }
     }
