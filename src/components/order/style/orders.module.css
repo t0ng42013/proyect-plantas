@@ -1,0 +1,64 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #6c5ce7;
+    --background-color: #f8f9fa;
+    --card-background: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --border-color: #e1e4e8;
+    --success-color: #28a745;
+    --pending-color: #ffc107;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+
+/* Dashboard Container */
+.dashboard {
+    
+    margin:  auto;
+    padding:  3rem;
+    background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926');
+    
+}
+
+
+.order-card {
+    max-width: 1200px;
+    margin: auto;
+    background: var(--card-background);
+    color:#333333 ;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.order-card:hover {
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.order-content {
+    padding: 1rem;
+}
+
+.suborder {
+    border-bottom: 1px solid var(--border-color);
+   
+}
+
+.suborder-details {
+    /* display: none; */
+    padding: 1rem;
+    background-color: var(--background-color);
+    margin: 0 1rem 1rem;
+    border-radius: 8px;
+}
+
+.suborder-details.expanded {
+    display: block;
+}
+
+.suborder-details.expanded {
+    display: block;
+}

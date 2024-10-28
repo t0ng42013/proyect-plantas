@@ -1,0 +1,27 @@
+.order-header {
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-main-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.order-main-info i {
+    font-size: 1.5rem;
+}
+
+.status-badge {
+    background: white;
+    color: var(--secondary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}

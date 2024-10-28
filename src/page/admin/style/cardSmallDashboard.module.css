@@ -1,0 +1,94 @@
+/* styles.module.css */
+
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 288px;
+  height: 195px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cardContainerContent{
+    width: 285px;
+    height: 135px;
+    margin: 15px ;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+.cardIcon {
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  font-size: 1.5rem;
+  color: white;
+  padding: 1rem;
+}
+
+.cardContent {
+  padding: 1rem;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  color: #888;
+  margin: 0;
+  text-align: end;
+}
+
+.cardValue {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0.5rem 0;
+  text-align: end;
+}
+
+.cardFooter {
+  font-size: 0.875rem;
+  line-height: 24px;
+  padding-top: 10px;
+  color: #888;
+  margin-top: 0.5rem;
+  border-top: #f4f4f4 solid.5px;
+}
+
+.chart {
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  color: white;
+}
+
+.chart p {
+  margin: 0;
+}
+
+.chart .cardTitle {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.chart .cardFooter {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+}

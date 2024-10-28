@@ -5,5 +5,6 @@ export interface CartState{
     cartItems: Productos[],
     modal: boolean,
     cost: number,
-    hidden: boolean
+    hidden: boolean,
+    subTotal: number
 }

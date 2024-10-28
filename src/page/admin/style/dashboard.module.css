@@ -1,0 +1,21 @@
+.sectionContainer{
+    width: 100%;
+}
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  &>:nth-child(1) {
+    background-color: #f3f4f6;
+    padding: 1rem;
+    border-radius: 0.5rem;
+   display: flex;
+   flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  &>:nth-child(2) {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+  }
+}

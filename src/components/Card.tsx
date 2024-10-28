@@ -14,6 +14,7 @@ import style from '../style/card.module.css';
 
 export const Card = ({item, dark}:Card) => {
     const dispatch = useAppDispatch();
+   
     const handleCart = ()=>{
         dispatch(addToCart(item));
         dispatch(toggleModal());

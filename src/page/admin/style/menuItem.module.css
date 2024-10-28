@@ -1,0 +1,39 @@
+.menuItem{
+margin-bottom: 0.25rem;
+padding: 0;
+}
+
+.buttonContent {
+  margin-bottom: 10px;
+  list-style: none;
+  
+  a{
+      display: flex;
+      width: 100%;
+      padding: 10px 10px;
+      border-radius: 8px;
+      color: #fff;
+      line-height: 30px;
+      font-family: sans-serif;
+
+      &:hover{
+        background-color: #05050579;
+      }
+ }
+
+  svg{
+    font-size: 24px;
+  }
+}
+.iconActive {
+  background-color: #2563EB;
+}
+
+.iconInactive {
+  background-color: transparent;
+}
+
+.menuLabel {
+  margin-left: 0.75rem; /* ml-3 */
+  font-weight: 500; /* font-medium */
+}

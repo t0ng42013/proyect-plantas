@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, RouteObject } from "react-router-dom";
 import { Home } from "../page/Home";
 import {  Suspense } from "react";
 import { About, NotFound, Plantas } from "../page";
@@ -7,8 +7,11 @@ import { Log} from "../components/Log";
 import { Contact } from "../page/Contact";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { AdminLayouts } from "../layouts/AdminLayouts";
-import { AdminDashboard } from "../page/admin/AdminDashboard";
 import { AdminProducts } from "../page/admin/AdminProducts";
+import { Orders } from "../page/Orders";
+import { AdminDashboard } from "../page/admin/AdminDashboard";
+import { AdminUsers } from "../page/admin/AdminUsers";
+
 
 interface RouteConfig {
     path?: string;
@@ -18,13 +21,22 @@ interface RouteConfig {
     index?: boolean;
 }
 
-const routes = [
+const withSuspense = (Component: React.ComponentType): React.ReactElement => {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <Component />
+        </Suspense>
+    )
+}
+
+const routes: RouteConfig[] = [
     {
         path:'/',
         Component:Layout,
         children:[
             {
                 index: true,
+                path: '/',
                 Component: Home,
             },
             {
@@ -48,6 +60,16 @@ const routes = [
         ]
     },
     {
+        path: '/orders',
+        element:<ProtectedRoute allowedRoles={['User','Admin']} />,
+        children: [
+            {
+                index: true,
+                Component: Orders
+            }
+        ]
+    },
+    {
         path:'/admin',
         element: <ProtectedRoute allowedRoles={['Admin']} />,
         children:[
@@ -57,12 +79,17 @@ const routes = [
                 children:[
                     {
                         index: true,
+                        path: '',
                         Component: AdminDashboard
                     },
                     {
                         path: 'products',
                         Component: AdminProducts
                     },
+                    {
+                        path: 'users',
+                        Component: AdminUsers
+                    }
                 ]               
             }
         ]
@@ -74,24 +101,24 @@ const routes = [
     }
 ];
 
-const withSuspense = (Component:React.ComponentType) =>{
-    return(
-        <Suspense fallback={<div>Loading...</div>}>
-            <Component />
-        </Suspense>
-    )
-}
 
+// Función auxiliar para procesar rutas hijas
+const processChildren = (children: RouteConfig[] | undefined): RouteObject[] | undefined => {
+  if (!children) return undefined;
+  
+  return children.map(({ index, path, Component, children: nestedChildren }) => ({
+      index: index === true ? false : undefined, 
+    path,
+    element: Component && withSuspense(Component),
+    children: processChildren(nestedChildren),
+  }));
+};
 
 export const router =  createBrowserRouter(
     routes.map(({ path, Component, children, element }) =>({
         path,
         element:(element ||(Component && withSuspense(Component))),
-        children: children?.map(({ index, path, Component }: RouteConfig)=>({
-            index,
-            path,
-            element: Component && withSuspense(Component)
-        }))
+       children: processChildren(children)
     }))
 );
 

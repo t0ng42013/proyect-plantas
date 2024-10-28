@@ -1,0 +1,24 @@
+.suborder-header {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.suborder-header:hover {
+    background-color: var(--background-color);
+}
+
+.suborder-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.suborder-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}

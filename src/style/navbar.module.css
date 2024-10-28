@@ -268,3 +268,45 @@ color: #be5a09;
    
   }
 }
+
+.AccountUserContainer{
+    cursor: pointer;
+    summary{
+        list-style: none;
+    }  
+     ul{
+            border-radius: 8px;
+            position: absolute;
+            right: 0;
+            padding: 0;
+            width: 200px;
+            background-color: #fff;
+            color: #000;
+            text-transform: capitalize;
+            overflow: hidden;
+            li:nth-child(1){
+                &:hover{
+                    background-color: #fff;
+                    color: #000;
+                    cursor: default;
+                }
+            }
+        }
+    li{
+        list-style: none;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        border-bottom: 1px solid #000;
+        cursor: pointer;
+        &:hover{
+            background-color: #be5a09;
+            color: #fff;
+            a{
+                color: #fff;
+            }
+        }
+     
+       
+    }
+}

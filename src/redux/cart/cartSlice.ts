@@ -9,6 +9,7 @@ const INITIALSTATE: CartState = {
     modal: false,
     cost: 0,
     hidden: false,
+    subTotal: 0,
 };
 
 export const cartSlice = createSlice({
@@ -43,9 +44,12 @@ export const cartSlice = createSlice({
                 modal: !state.modal
             }
         },
+        subtotal:(state:CartState)=>{
+            state.subTotal =state.cartItems.reduce((acc, producto) => acc + (producto.price * (producto.quantity || 0) ), 0);
+        }
     },
 });
 
 
-export const { addToCart, removeToCart, clearCart, toggleCart, toggleModal } = cartSlice.actions;
+export const { addToCart, removeToCart, clearCart, toggleCart, toggleModal, subtotal } = cartSlice.actions;
 export default cartSlice.reducer;

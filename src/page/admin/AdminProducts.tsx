@@ -1,6 +1,7 @@
 
 export const AdminProducts = () => {
+  console.log('AdminProducts component rendered');
   return (
-    <div>AdminProducts</div>
+    <div></div>
   )
 }
