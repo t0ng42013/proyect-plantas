@@ -1,10 +1,11 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import {  createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Productos } from "../../interface/Productos";
-import { getProduct } from "../../services/productServices";
+import { createProduct, deleteProduct, getProducts, handleAsync, updateProduct } from "./helperProduct";
 
 
 
 interface DataState{
+    id?: string;
     data:Productos[];
     isLoading:boolean;
     error: null | string | undefined;
@@ -16,29 +17,33 @@ const INITIAL_STATE:DataState = {
     error:null
 }
 
-export const fetchProducts = createAsyncThunk('products/fetchProducts', async()=>{
-    const products = await getProduct();
-    return products;
-} )
-
 
 const productSlice = createSlice({
 name: "products",
 initialState:INITIAL_STATE,
 reducers: {},
-extraReducers(builder) {
-    builder.addCase(fetchProducts.pending, (state) => {
-        state.isLoading = true;
-    });
-    builder.addCase(fetchProducts.fulfilled, (state, action) => {
+extraReducers: (builder) => {
+  handleAsync(builder, getProducts, (state:DataState, action:PayloadAction<Productos[]>) => {
         state.data = action.payload;
-        state.isLoading = false;
+  });
+
+    handleAsync(builder, createProduct, (state: DataState, action: PayloadAction<Productos>) => { 
+        state.data = [...state.data, action.payload];
     });
-    builder.addCase(fetchProducts.rejected, (state, action) => {
-        state.error = action.error.message;
-        state.isLoading = false;
+    handleAsync(builder, updateProduct, (state: DataState, action: PayloadAction<Productos>) => { 
+        state.data = state.data.map((product) => {
+            if (product.id === action.payload.id) {
+                return action.payload;
+            }
+            return product;
+        })
+          
     });
-},
+    handleAsync(builder, deleteProduct, (state: DataState, action: PayloadAction<Productos>) => {
+        state.data = state.data.filter((product) => product.id !== action.payload.id);
+     });
+}
 });
 
 export default productSlice.reducer;
+

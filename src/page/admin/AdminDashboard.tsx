@@ -21,26 +21,7 @@ export const AdminDashboard = () => {
             <div>
               {/* <!-- Gráficos de ventas y suscripciones --> */}
               <CardLargeDashboard />
-              {/* <div className={style.cardContainer}>
-                <div className={style.chart} style={{ backgroundColor: "#66BB6A" }}>
-                  <p className={style.cardTitle}>Daily Sales</p>
-                  <p className={style.cardFooter}>55% increase in today sales</p>
-                </div>
-              </div>
-
-              <div className={style.cardContainer}>
-                <div className={style.chart} style={{ backgroundColor: "#FFA726" }}>
-                  <p className={style.cardTitle}>Email Subscriptions</p>
-                  <p className={style.cardFooter}>Last Campaign Performance</p>
-                </div>
-              </div>
-
-              <div className={style.cardContainer}>
-                <div className={style.chart} style={{ backgroundColor: "#EF5350" }}>
-                  <p className={style.cardTitle}>Completed Tasks</p>
-                  <p className={style.cardFooter}>Last Campaign Performance</p>
-                </div>
-              </div> */}
+      
             </div>
 
 

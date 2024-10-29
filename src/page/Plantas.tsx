@@ -6,7 +6,7 @@ import { useScrollTo } from '../hooks/useScroll';
 import { useState, useEffect } from 'react';
 
 import style from '../style/plantas.module.css'
-import { fetchProducts } from '../redux/data/productSlice';
+import { getProducts } from '../redux/data/helperProduct';
 
 
 export const Plantas = () => {
@@ -25,7 +25,7 @@ const showMore = ()=>{
 
 
 useEffect(() => {
-    dispatch(fetchProducts());
+    dispatch(getProducts());
 }, [dispatch])
 
     return (

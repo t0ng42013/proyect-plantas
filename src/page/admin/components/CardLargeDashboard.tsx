@@ -28,7 +28,7 @@ export const CardLargeDashboard = () => {
     return (
         <>
             {
-                menuItem.map(({ title, description, udpated,bg }) => (
+                menuItem.map(({ title, description, udpated, bg }) => (
                     <div className={style.cardContainer}>
                         <div className={style.cardContainerContent}>
                             <div className={style.chart} style={{ backgroundColor: bg }}>
@@ -47,23 +47,6 @@ export const CardLargeDashboard = () => {
                 )
                 )
             }
-            </>
-        // <div className={style.cardContainer}>
-        //     <div className={style.cardContainerContent}>
-        //         <div className={style.chart} style={{ backgroundColor: "#66BB6A" }}>
-        //             <div></div>
-        //         </div>
-        //         <div className={style.cardInfo}>
-        //             <p className={style.cardTitle}>Daily Sales</p>
-        //             <p className={style.cardDes}> 55% increase in today sales</p>
-        //         </div>
-        //         <div className={style.cardFooter}>
-        //             <span><BsClock size={12}/></span>
-        //             <p>updated 4 min ago</p>
-        //         </div>
-        //     </div>
-        // </div>
-
-
+        </>
     )
 }

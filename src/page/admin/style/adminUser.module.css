@@ -1,0 +1,94 @@
+.card-wrapper{
+    padding: 30px 15px;
+    position: relative;
+}
+.employee-card{
+    background-color: #fff;
+    padding: 20px;
+    padding-top: 105px;
+    border-radius: 8px;
+    box-shadow:rgba(0, 0, 0, 0.14) 0px 1px 4px 0px;
+}
+
+.card-header{
+    position: absolute;
+    top: 10px;
+    width: calc(100% - 70px);
+    padding: 15px;
+    background-color: #ff9800;
+    color: #7a7474;
+    border-radius: 8px;
+
+    
+}
+
+.card-title{
+    font-size: clamp(18px, 4vw, 32px);
+    line-height: 28px;
+    margin: 0;
+}
+.card-subtitle{
+   font-size: clamp(16px, 4vw, 24px);
+   line-height: 24px; 
+   margin: 0;
+}
+.card-body{
+    border: solid 1px #777;
+}
+
+.employee-table{
+    width: 100%;
+}
+
+.eader-row{
+    border: solid springgreen;
+}
+.header-cell{
+    border: solid #777;
+}
+.table-body .table-row{
+    border: solid yellow;
+}
+.delete,.update{
+    text-align: center;
+    cursor: pointer;
+   
+}
+
+.delete{
+ &:hover{
+        filter: drop-shadow(0px 0px 5px #ff0000);
+    }
+}
+.update{
+    &:hover{
+        filter: drop-shadow(0px 0px 5px #00ff00);
+    }
+}
+
+.table-row{
+    &:hover{
+        background-color: #e2e2e0;
+        cursor: pointer;
+    }
+}
+
+.add{
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+
+    svg{
+        &:hover{
+            filter: drop-shadow(1px 1px 3px rgb(33, 130, 143));
+            cursor: pointer;
+            transform: rotate(90deg);
+            transition: all 0.5s;
+        }
+    }
+    
+    &:hover{
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}

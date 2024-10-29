@@ -8,7 +8,7 @@ import '../index.css'
 import { useNavigate } from 'react-router-dom';
 import { llegados } from '../utils/RecLlegados';
 import { useEffect } from 'react';
-import { fetchProducts } from '../redux/data/productSlice';
+import { getProducts } from '../redux/data/helperProduct';
 
 export const Products = () => {
 
@@ -20,7 +20,7 @@ export const Products = () => {
     navigation('/products');
   };
   useEffect(() => {
-    dispath(fetchProducts())
+    dispath(getProducts())
   }, [dispath])
 
   return (
