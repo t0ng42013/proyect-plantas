@@ -7,7 +7,6 @@ interface ListaProductosProps {
 }
 
 export const ListaProductos: React.FC<ListaProductosProps> = ({products}) => {
-    console.log(products)
    return (
     <>
       {

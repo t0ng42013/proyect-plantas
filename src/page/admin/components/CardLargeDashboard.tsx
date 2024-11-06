@@ -29,7 +29,7 @@ export const CardLargeDashboard = () => {
         <>
             {
                 menuItem.map(({ title, description, udpated, bg }) => (
-                    <div className={style.cardContainer}>
+                    <div key={title} className={style.cardContainer}>
                         <div className={style.cardContainerContent}>
                             <div className={style.chart} style={{ backgroundColor: bg }}>
                                 <div> </div>

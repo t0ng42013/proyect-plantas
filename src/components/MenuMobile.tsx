@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { navItems } from '../utils/navItems';
 
 import style from "../style/navbar.module.css"
@@ -18,8 +18,8 @@ export const MenuMobile = ({toggleMenu}:{toggleMenu:()=>void}) => {
                 }
                 <hr />
                 <div className={style.AccountMobile}>
-                    <a href="/">Entrar</a>
-                    <a href="/">Register</a>
+                    <Link to="/login">Entrar</Link>
+                    <Link to="/register">Register</Link>
                 </div>
             </ul>
 

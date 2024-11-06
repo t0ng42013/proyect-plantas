@@ -4,26 +4,46 @@
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { Buttons } from "../components";
 
-import style from "../style/contact.module.css";
 import { useScrollTo } from "../hooks/useScroll";
+import { Field, Form, Formik } from 'formik';
+import { contactInitialValue } from "../Formik/initialValues";
+import { contactValidationSchema } from "../Formik/validationSchema";
 
 
+import style from "../style/contact.module.css";
 export const Contact = () => {
     useScrollTo();
+
+
+const handleSubmit = (values, { resetForm }) => {
+    resetForm();
+}
+
   return (
     <section className={style['contactPageContainer']}>
           <section className={style['contact-page__form']}>
               <h4 className={style['contact-page__form-header']}>Déjanos un correo</h4>
-
-              <form className={style['contact-page__form-content']} action="">
+    <Formik
+    initialValues={contactInitialValue}
+    validationSchema={contactValidationSchema}
+    onSubmit={handleSubmit}
+    >
+         
+              {({ errors, touched }) => (
+        <Form className={style['contact-page__form-content']} action="">
                   <div className={style['contact-page__form-group']}>
-                      <input className={style['contact-page__form-element']} type="text" placeholder="Su nombre..." />
-                      <input className={style['contact-page__form-element']} type="text" placeholder="Tu correo electrónico...." />
+                      <Field className={style['contact-page__form-element']} type="text" name="name" placeholder="Su nombre..." />
+                      <Field className={style['contact-page__form-element']} name="email" type="text" placeholder="Tu correo electrónico...." />
                   </div>
+                              {touched.name && errors.name && <div className={style.error}>{errors.name}</div>}
+                              {touched.email && errors.email && <div style={{display:'inline'}} className={style.error}>{errors.email}</div>}
 
-                  <textarea className={style['contact-page__form-element']} placeholder="Tu mensaje..."></textarea>
+                          <Field as="textarea" className={style['contact-page__form-element']} name="message" placeholder="Tu mensaje..."></Field>
+                          {touched.message && errors.message && <div style={{ left: '250px' }} className={style.error}>{errors.message}</div>}
                   <Buttons txt="Enviar" />
-              </form>
+              </Form>
+             )}
+             </Formik>
           </section>
 
           <section className={style['contact-page__info']}>

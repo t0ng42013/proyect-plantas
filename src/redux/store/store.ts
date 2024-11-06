@@ -5,6 +5,7 @@ import filterReducer from "../filter/filterSlice";
 import authReducer from "../auth/authSlice";
 import productsReducer from "../data/productSlice";
 import orderReducer from "../orders/orderSlice";
+import commentReducer from "../comments/commentSlice";
 
 export const  store = configureStore({
     reducer:{
@@ -13,7 +14,8 @@ export const  store = configureStore({
         filter: filterReducer,
         auth: authReducer,
         products: productsReducer,
-        order: orderReducer
+        order: orderReducer,
+        comment: commentReducer
     },
 });
 

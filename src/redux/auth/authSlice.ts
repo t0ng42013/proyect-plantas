@@ -23,19 +23,11 @@ const INITIAL_STATE: IAuthState = {
 
 
 export const login = createAsyncThunk('auth/login', async (credential: ILoginCred) => {
-    try {
-        const user = await loginUser(credential);
-        return user;
-    } catch (error) {
-        return console.log(error)
-    }
+    const user = await loginUser(credential);
+    return user;
 });
-export const register = createAsyncThunk('auth/register', async (credential: ILoginCred) => {
-    try {
-        return await registerUser(credential);
-    } catch (error) {
-        return console.log(error)
-    }
+export const register = createAsyncThunk('auth/register', async (credential: ILoginCred) => { 
+        return await registerUser(credential);  
 });
 
 const authSlice = createSlice({
@@ -61,10 +53,11 @@ const authSlice = createSlice({
                 state.token = action.payload?.token ?? null;
                 state.user = decodeToken(action.payload.token);
                 state.isAuthenticated = true;
+                localStorage.setItem('token', action.payload.token);
             })
             .addCase(login.rejected, (state, action) => {
                 state.isLoading = false;
-                state.error = action.payload as string;
+                state.error = action.error.message as string;
             })
             // Register cases
             .addCase(register.pending, (state) => {
@@ -75,6 +68,8 @@ const authSlice = createSlice({
                 state.isLoading = false;
                 state.token = action.payload.token;
                 state.user = decodeToken(action.payload.token);
+                state.isAuthenticated = true;
+                localStorage.setItem('token', action.payload.token);
             })
             .addCase(register.rejected, (state, action) => {
                 state.isLoading = false;

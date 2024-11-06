@@ -1,9 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { Buttons } from "../components"
 
 import style from "../style/story.module.css";
 
 
 export const Story = () => {
+
+    const navigation = useNavigate();
+    const handleNavigation = () => {
+        navigation('/about');
+    };
   return (
       <section className={style.our}>
         <span className={style.story}>Nuestra Historia</span>
@@ -29,7 +35,7 @@ export const Story = () => {
                       naturaleza.
                   </p>
                   <div>
-                      <Buttons txt='Leer más' />
+                      <Buttons onClick={handleNavigation} txt='Leer más' />
                   </div>
               </article>
           </div>

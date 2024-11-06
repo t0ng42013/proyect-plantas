@@ -36,7 +36,7 @@ export const Products = () => {
       <div className={style.newProductGrid}>
         {
 
-          llegados(data).map(item => (<Card key={item.id} item={item}/>))
+          llegados(data,4).map(item => (<Card key={item.id} item={item}/>))
         }
 
       </div>

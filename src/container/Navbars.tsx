@@ -9,23 +9,23 @@ import style from "../style/navbar.module.css"
 export const Navbars = () => {
 
     const [modal, setModal] = useState(false);
-    const toggleMenu = () => { setModal((prevModal) => !prevModal ) };
+    const toggleMenu = () => { setModal((prevModal) => !prevModal) };
 
     useEffect(() => {
-    
+
         const handleResize = () => {
-          if( window.innerWidth >= 768 ){setModal(false)} 
+            if (window.innerWidth >= 768) { setModal(false) }
         };
 
         window.addEventListener("resize", handleResize);
 
-        return ()=> window.removeEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
     }, [])
 
     return (
         <>
             <div className={style.headerNav}>
-                { !modal
+                {!modal
                     ? (<MdMenuOpen
                         onClick={toggleMenu}
                         className={style.menu}

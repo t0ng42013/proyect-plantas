@@ -25,8 +25,8 @@ const showMore = ()=>{
 
 
 useEffect(() => {
-    dispatch(getProducts());
-}, [dispatch])
+    if(!data) dispatch(getProducts());
+}, [dispatch,data])
 
     return (
         <>

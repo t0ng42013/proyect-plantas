@@ -19,28 +19,10 @@
 
     img{
         width: 100%;
+        height: 472px;
+        object-fit: cover;
     }   
-   &::before{
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 472px;        
-        opacity: 0;
-        background: url('../assets/c837a6.webp');
-        background-repeat: no-repeat;
-        background-size: contain;       
-    } 
 
-     &:hover {
-        img {
-            opacity: 0; /* Oculta la imagen original */
-        }
-
-        &::before {
-            opacity: 1; /* Muestra el background en hover */
-        }}
 }
 .badge {
   position: absolute;

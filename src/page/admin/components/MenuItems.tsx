@@ -18,7 +18,13 @@ const menu = [
         title: 'Products',
         icon: <BsBox />,
         path: 'products'
-    },{
+    },
+    {
+        title: 'Comment',
+        icon: <CgComment />,
+        path: 'comments'
+    },
+    {
         title: 'Home',
         icon: <HiHome />,
         path: '/'
@@ -27,6 +33,7 @@ const menu = [
 
 import styles from '../style/menuItem.module.css';
 import { HiHome } from "react-icons/hi2";
+import { CgComment } from "react-icons/cg";
 
 export const MenuItems = () => {
     return (

@@ -16,7 +16,6 @@ export const ModalBuy = () => {
     {
       modal && showToast('Producto Agregado')
     }
-      {/* <div className={modal ? style.modalOpen : style.modalClose}>Producto Agregado <FaCheck color="green"  size={32}/></div> */}
       
     </>
 

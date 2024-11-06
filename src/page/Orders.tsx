@@ -19,7 +19,6 @@ export const Orders = () => {
     useEffect(() => {
         dispatch(getAllOrderData());
     }, [dispatch])
-    console.log(orders)
   return (
       <div className={style.dashboard}>
 

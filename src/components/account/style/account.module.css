@@ -1,0 +1,131 @@
+.container{
+    width: 350px;
+    margin: auto;
+    border: solid;
+     background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+
+.header {
+  text-align: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.iconCircle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid #0088cc;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.headerLine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  border: none;
+  border-top: 2px solid #0088cc;
+  margin: 0;
+}
+
+.formContainer{
+display: flex;
+  gap: 20px;
+}
+.loginForm{
+ background-color: #e6f3f7;
+  padding: 40px;
+  border-radius: 5px;
+  flex: 1;
+
+  h2{
+    color: #000;
+    font-weight: 400;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+  }
+  h3{
+    color:  #00a0a8;
+    margin: 0;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+}
+.inputGroup{
+     position: relative;
+     margin-bottom: 20px;
+     input{
+      margin: 0;
+     }
+}
+.inputGroup input {
+  width: 100%;
+  padding: 10px 10px 10px 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: #008ecc;
+  color: white;
+}
+.inputGroup input::placeholder {
+  color: #a8d8e8;
+}
+.userIcon, .lockIcon {
+  position: absolute;
+  left: 10px;
+  transform: translateY(50%);
+  z-index: 500;
+}
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  color: #666;
+}
+.submitBtn {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff9933;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.forgotPassword {
+  display: block;
+  text-align: center;
+  color: #0088cc;
+  text-decoration: none;
+  margin-top: 10px;
+}
+.error{
+  color: red;
+  font-size: 12px;
+  text-align: center;
+  text-align: start;
+  position: absolute;
+
+}
+.borderError{
+  border: 1px solid red !important;
+  input{
+    color: tomato;
+
+  }
+  &::placeholder{
+    color: tomato !important;
+    text-shadow: 1px 1px 3px red ;
+    
+  }
+}

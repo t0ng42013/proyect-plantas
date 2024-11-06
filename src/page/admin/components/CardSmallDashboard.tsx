@@ -1,21 +1,36 @@
 import { PiNewspaperClippingDuotone } from 'react-icons/pi'
 import { FaUserSecret } from 'react-icons/fa'
-import { useAppSelector } from '../../../hooks/hooks'
+import { useAppDispatch, useAppSelector } from '../../../hooks/hooks'
 
 
 import style from '../../admin/style/cardSmallDashboard.module.css'
-
+import { useEffect } from 'react'
+import { getAllCommentsThunk } from '../../../redux/comments/handleComments'
+import { getUserThunk } from '../../../redux/log/handleUsers'
+import { getProducts } from '../../../redux/data/helperProduct'
 
 
 
 export const CardSmallDashboard = () => {
-    const {data} = useAppSelector(state=>state.products)
+    const {usuarios} = useAppSelector(state => state.user)
+    const {data} = useAppSelector(state => state.products)
+    const {comments} = useAppSelector(state => state.comment)
+    const dispatch = useAppDispatch();
+
+
+    useEffect(() => {
+    dispatch(getAllCommentsThunk());
+    dispatch(getProducts());
+    dispatch(getUserThunk());
+    
+    }, [dispatch])
+
     const menuItem = [
         {
             label: 'Usuarios',
             icon: <FaUserSecret size={56} />,
             title: 'Usuarios',
-            value: '1200',
+            value: usuarios.length,
             footer: 'Total de usuarios registrados',
             bg: '#FFA726'
         },
@@ -27,19 +42,11 @@ export const CardSmallDashboard = () => {
             footer: 'Productos en stock',
             bg: '#66BB6A'
         },
-        // {
-        //     label: 'Pedidos',
-        //     icon: <PiNewspaperClippingDuotone size={56} />,
-        //     title: 'Pedidos',
-        //     value: '48',
-        //     footer: 'Pedidos en proceso',
-        //     bg: '#42A5F5'
-        // },
         {
             label: 'Comentarios',
             icon: <PiNewspaperClippingDuotone size={56} />,
             title: 'Comentarios',
-            value: '240',
+            value: comments.length,
             footer: 'Reseñas recibidas',
             bg: '#EF5350'
         },
@@ -47,7 +54,7 @@ export const CardSmallDashboard = () => {
             label: 'Ventas',
             icon: <PiNewspaperClippingDuotone size={56} />,
             title: 'Ventas Totales',
-            value: '$45,000',
+            value: '$' + data.reduce((acc, item) => acc + item.price, 0),
             footer: 'Ingresos de este mes',
             bg: '#AB47BC'
         },
@@ -57,7 +64,7 @@ export const CardSmallDashboard = () => {
 
             {
                 menuItem.map(({  icon, title, value, footer, bg }) => (
-                    <div className={style.cardContainer}>
+                    <div key={title} className={style.cardContainer}>
                         <div className={style.cardContainerContent}>
                             <div className={style.cardIcon} style={{ backgroundColor: bg }}>
                                 {icon}

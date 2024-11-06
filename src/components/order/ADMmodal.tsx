@@ -1,110 +1,95 @@
-import { ChangeEvent, useState } from "react";
+
+import { ChangeEvent,  useState } from "react";
 import { BiX } from "react-icons/bi";
+import { useAppDispatch } from "../../hooks/hooks";
+import { actionMap } from "../../utils/actionMap";
 
-export const ADMmodal = () => {
-    const[productData, setProductData] = useState({
-        name: '',
-        imageUrl: '',
-        price: '',
-        stock: '',
-        quantity: ''
-    });
 
-    const handleInputChange = (e:ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setProductData(prev => ({
-            ...prev,
-            [name]: value
-        }));
+
+
+import style from './style/ADModal.module.css';
+import { showToast } from "../../hooks/useConfirmationDialog";
+export const ADMmodal = ({ data, handleModal, action,  selected, entityType }) => {
+   const dispatch = useAppDispatch();
+    const [newEntity, setNewEntity] = useState(selected );    
+
+    if (!data || Object.keys(data).length === 0) {
+        return <div>No data available</div>;
+    }
+
+    const renderInput = () => {  
+        return Object.entries(newEntity).map(([key, value], index: number) => {
+            const inputType = typeof value === 'number' ? 'number' : 'text';
+            
+            if (key === 'id' || key === 'created_at' || key === 'updated_at'|| key === 'userID' || key === 'userName') {
+                return null;
+            }
+            return (
+                <div key={index}>
+                    <label className={style.modalCardLabel}>{key}:</label>
+                    <input
+                        type={inputType}
+                        name={key}
+                        value={newEntity[key]}
+                        onChange={handleInputChange}
+                        className={style.modalCardInput}
+                    />
+                </div>
+            );
+        });
     };
 
-    
-  return (    
-    <>
-    <div className="overlay"></div>
-    
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-              <div className="bg-white rounded-lg p-6 w-96">
-                  <div className="flex justify-between items-center mb-4">
-                      <h2 className="text-xl font-bold">Modificar Producto</h2>
-                      <button onClick={()=>{}} className="text-gray-500 hover:text-gray-700">
-                          <BiX size={24} />
-                      </button>
-                  </div>
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {      
+          setNewEntity({
+            ...newEntity,
+            [e.target.name]: e.target.value})     
+    }
 
-                  <div className="space-y-4">
-                      <div>
-                          <label className="block text-sm font-medium text-gray-700">Nombre:</label>
-                          <input
-                              type="text"
-                              name="name"
-                              value={productData.name}
-                              onChange={handleInputChange}
-                              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border"
-                          />
-                      </div>
 
-                      <div>
-                          <label className="block text-sm font-medium text-gray-700">URL de Imagen:</label>
-                          <input
-                              type="text"
-                              name="imageUrl"
-                              value={productData.imageUrl}
-                              onChange={handleInputChange}
-                              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border"
-                          />
-                      </div>
+    const handleSubmit = () => {
+      const actionFunc = actionMap[entityType]?.[action];
+        if(actionFunc) dispatch(actionFunc(newEntity));
+        showToast(`Producto ${action === 'delete' ? 'eliminado' : 'guardado'}`);
+       handleModal();
+    }
 
-                      <div>
-                          <label className="block text-sm font-medium text-gray-700">Precio:</label>
-                          <input
-                              type="number"
-                              name="price"
-                              value={productData.price}
-                              onChange={handleInputChange}
-                              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border"
-                          />
-                      </div>
+    return (
+        <>
+            <div className={style.overlay}></div>
 
-                      <div>
-                          <label className="block text-sm font-medium text-gray-700">Stock:</label>
-                          <input
-                              type="number"
-                              name="stock"
-                              value={productData.stock}
-                              onChange={handleInputChange}
-                              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border"
-                          />
-                      </div>
+            <div className={style.cardModalContainer}>
+                <div className={style.modalCard}>
+                    <div className={style.modalTitle}>
+                        <h2 className="text-xl font-bold">
+                            {action === 'create' ? 'Crear' : action === 'update' ? 'Modificar' : 'Eliminar'} Producto</h2>
+                        <button onClick={handleModal } className="text-gray-500 hover:text-gray-700">
+                            <BiX size={24} />
+                        </button>
+                    </div>
+                    <div className={style.modalCardBody}>
 
-                      <div>
-                          <label className="block text-sm font-medium text-gray-700">Cantidad:</label>
-                          <input
-                              type="number"
-                              name="quantity"
-                              value={productData.quantity}
-                              onChange={handleInputChange}
-                              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 border"
-                          />
-                      </div>
-                  </div>
+                        {
+                         data && renderInput()                         
+                        }
 
-                  <div className="mt-6 flex justify-end space-x-3">
-                      <button
-                          onClick={() => { }}
-                          className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200"
-                      >
-                          Cancelar
-                      </button>
-                      <button
-                          onClick={() => { }}
-                          className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700"
-                      >
-                          Guardar
-                      </button>
-                  </div>
-              </div>
-          </div>
-          </>
-)
+                    </div>
+
+                    <div className={style.modalCardFooter}>
+                        <button
+                            onClick={handleModal}
+                            className={style.btnDanger}
+                        >
+                            Cancelar
+                        </button>
+                        <button
+                            onClick={handleSubmit}
+                            className={style.btnPrimary}
+                        >
+                            {action === 'delete' ? 'Eliminar' : 'Guardar'}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </>
+    )
 }

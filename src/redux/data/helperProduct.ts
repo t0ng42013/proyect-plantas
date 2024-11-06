@@ -7,19 +7,19 @@ export const getProducts = createAsyncThunk('products/fetchProducts', async () =
     return products;
 })
 
-export const createProduct = createAsyncThunk('products/createProduct', async (credentilas:Productos) => {
-    const products = await createProductSrv(credentilas);
+export const createProduct = createAsyncThunk('products/createProduct', async (credentials:Productos) => {
+    const products = await createProductSrv(credentials);
     return products;
 })
 
-export const updateProduct = createAsyncThunk('products/updateProduct', async (credentilas: Productos) => {
-    const products = await updateProductSrv(credentilas);
+export const updateProduct = createAsyncThunk('products/updateProduct', async (credentials: Productos) => {
+    const products = await updateProductSrv(credentials);
     return products;
 })
 
-export const deleteProduct = createAsyncThunk('products/deleteProduct', async (credentilas: Productos) => {
-    const products = await deleteProductSrv(credentilas);
-    return;
+export const deleteProduct = createAsyncThunk('products/deleteProduct', async (credentials: Productos) => {  
+    const products = await deleteProductSrv(credentials)
+    return products;
 })
 
 

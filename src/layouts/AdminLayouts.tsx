@@ -1,20 +1,18 @@
 
 import { Link,  Outlet,  } from 'react-router-dom';
-
-
-
-
-
-import styles from './admLayout.module.css';
 import { BiLogOut } from 'react-icons/bi';
 import { useAppDispatch, useAppSelector } from '../hooks/hooks';
 import { MenuItems } from '../page/admin/components/MenuItems';
 import { logout } from '../redux/auth/authSlice';
 
 
+
+import styles from './admLayout.module.css';
 export const AdminLayouts = () => {
     const {user}= useAppSelector(state=> state.auth);
+    const {usuarios}= useAppSelector(state=> state.user);
     const dispatch = useAppDispatch();
+
     return (
         <div className={styles.adminLayout}>
             <aside className={styles.aside}>
@@ -44,7 +42,7 @@ export const AdminLayouts = () => {
                         </div>
                         <div className={styles.userInfo}>
                             <p className={styles.userName}>{user?.name}</p>
-                            <p className={styles.userEmail}>{user?.name}@example.com</p>
+                            <p className={styles.userEmail}>{user && usuarios.find(i => i.id === user.id)?.email || 'unknown'}</p>
                         </div>
                         <div onClick={()=>dispatch(logout())} className={styles.logoutButton}>
                             <Link to={'/'}><BiLogOut size={24} /></Link>

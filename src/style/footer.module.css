@@ -41,6 +41,7 @@ a{
 .footer__form{
     padding-top: 50px;
     padding-bottom: 50px;
+    position: relative;
     h3{
         font-size: 22px;
         color: white;
@@ -54,7 +55,7 @@ a{
         color: #666;
         box-sizing: border-box;
         background-color: aliceblue;
-
+        
         @media (max-width: 768px) {
             width: 100%;
         }
@@ -96,4 +97,19 @@ a{
     padding: 40px;
     text-align: center;
     color: white;
+}
+.error{
+    position: absolute;
+    top: 50%;
+    display: inline;
+    color: tomato;
+}
+.foortBorError{
+    border: 2px solid tomato;
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    text-align: center;
 }

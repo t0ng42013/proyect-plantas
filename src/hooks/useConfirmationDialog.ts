@@ -25,8 +25,6 @@ export const useConfirmationDialog = () => {
 };
 
 
-
-
 export const showToast = (title:string) => {
     const MySwal = withReactContent(Swal);
     MySwal.fire({

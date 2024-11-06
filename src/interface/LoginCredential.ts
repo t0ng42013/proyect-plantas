@@ -1,4 +1,6 @@
 export interface ILoginCred{
-    name:string;
+    nameOrEmail?: string;
+    name?:string;
+    email?:string;
     password:string;
 }

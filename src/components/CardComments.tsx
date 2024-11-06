@@ -1,16 +1,25 @@
-import { FaQuoteLeft } from "react-icons/fa"
+import { FaQuoteLeft, FaUserCircle } from 'react-icons/fa';
 
 
 import style from "../style/cardComment.module.css"
 
-export const CardComments = () => {
+interface CommentProps {
+    comment: string;
+    userName: string | undefined;
+}
+
+export const CardComments = ({ comment, userName }: CommentProps) => {
     return (
         <div className={style.cardContainer}>
             <div className="cardContainer-img"><FaQuoteLeft size={32} color="#c6d8c0" /></div>
-            <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe architecto fuga excepturi ullam sapiente atque dicta?</p>
+            <p> 
+                {
+                    comment                     
+                }
+            </p>
             <div className="userComments">
-                <img src="https://websitedemos.net/plant-shop-02/wp-content/uploads/sites/931/2021/08/plants-store-testimonials-avatar-img-2.jpg" alt="user" />
-                <h4>User user</h4>
+                <FaUserCircle size={32} />
+                <h4>{userName}</h4>
             </div>
         </div>
     )

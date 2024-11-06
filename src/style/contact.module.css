@@ -48,6 +48,8 @@ button{
 .contact-page__form-group{
     display: flex;
     gap: 20px;
+    position: relative;
+
     input:nth-child(1){
         width: 50%;
     }
@@ -130,4 +132,9 @@ resize: none;
 }
 .contact-page__section {
   /* Additional section styles if needed */
+}
+.error{
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
 }
