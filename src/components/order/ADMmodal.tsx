@@ -3,13 +3,16 @@ import { ChangeEvent,  useState } from "react";
 import { BiX } from "react-icons/bi";
 import { useAppDispatch } from "../../hooks/hooks";
 import { actionMap } from "../../utils/actionMap";
+import { showToast } from "../../hooks/useConfirmationDialog";
 
 
 
 
 import style from './style/ADModal.module.css';
-import { showToast } from "../../hooks/useConfirmationDialog";
-export const ADMmodal = ({ data, handleModal, action,  selected, entityType }) => {
+
+type EntityType = 'user' | 'product' | 'comment';
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const ADMmodal = ({ data, handleModal, action, selected, entityType }: { data: any, handleModal:any,action:string,selected:any,entityType:EntityType}) => {
    const dispatch = useAppDispatch();
     const [newEntity, setNewEntity] = useState(selected );    
 
