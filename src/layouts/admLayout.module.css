@@ -3,6 +3,10 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
+
+      @media (max-width: 600px) {
+        position: relative
+    }
 }
 
 .aside {
@@ -13,6 +17,21 @@
   border-right: 1px solid #080c14; /* border-r border-gray-200 */
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+      position: fixed;
+      left: -250px;
+      z-index: 900;
+      background-color: #111827;
+      top: 0;
+      &:hover{
+        left: 0;
+      }
+
+      .aside:hover{
+        left: 0;
+      }
+  }
 }
 
 .headerLogo {
@@ -125,4 +144,8 @@
      background-color: #f3f3f3;
     color: #080c14;
     overflow-y: auto;
+
+        @media (max-width: 600px) {
+        padding: 0.5rem;
+    }
 }

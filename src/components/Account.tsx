@@ -1,5 +1,4 @@
 
-import { createAccount } from "../redux/log/loginSlice";
 import { FaUserCircle } from "react-icons/fa"
 import { useAppSelector } from "../hooks/hooks";
 import { useDispatch } from "react-redux";
@@ -28,7 +27,7 @@ export const Account = () => {
   }, [token, nav]);
 
   const handleBtn = () => {
-    dispatch(createAccount());
+    // dispatch(createAccount());
     navigation('/login');
   }
 

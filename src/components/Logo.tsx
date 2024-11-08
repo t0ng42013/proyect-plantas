@@ -6,8 +6,8 @@ export const Logo = () => {
     return (
         <div >
             <h1 className={''}>
-                <Link to="/admin">
-                    {/* <img className={``} src="./LogoVerde.png" alt="logo" /> */}
+                <Link to="/">
+                    <img style={{ width: 'clamp(120px, 4vw, 150px)', position:'absolute',translate:'-20% -20%',zIndex:'1'}} src="/logo.png" alt="logo" />
                     <PiPottedPlantFill size={62} />
                 </Link>
             </h1>

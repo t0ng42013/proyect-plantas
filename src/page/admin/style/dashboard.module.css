@@ -17,5 +17,10 @@
     display: flex;
     gap: 1rem;
     padding: 1rem;
+    flex-wrap: wrap;
+
+        @media (max-width: 600px) {
+        display: none;
+    }
   }
 }

@@ -38,10 +38,10 @@ export const AdminLayouts = () => {
                 <div className={styles.userProfileSection}>
                     <div className={styles.userProfileContainer}>
                         <div className={styles.userAvatar}>
-                            <span className={styles.userInitials}>JD</span>
+                            <span style={{textTransform:'capitalize'}} className={styles.userInitials}>{user?.name.slice(0,2)}</span>
                         </div>
                         <div className={styles.userInfo}>
-                            <p className={styles.userName}>{user?.name}</p>
+                            <p style={{ textTransform: 'capitalize' }} className={styles.userName}>{user?.name}</p>
                             <p className={styles.userEmail}>{user && usuarios.find(i => i.id === user.id)?.email || 'unknown'}</p>
                         </div>
                         <div onClick={()=>dispatch(logout())} className={styles.logoutButton}>

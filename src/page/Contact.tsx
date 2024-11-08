@@ -32,14 +32,22 @@ const handleSubmit = (values, { resetForm }) => {
               {({ errors, touched }) => (
         <Form className={style['contact-page__form-content']} action="">
                   <div className={style['contact-page__form-group']}>
+                    <div>
                       <Field className={style['contact-page__form-element']} type="text" name="name" placeholder="Su nombre..." />
-                      <Field className={style['contact-page__form-element']} name="email" type="text" placeholder="Tu correo electrónico...." />
-                  </div>
-                              {touched.name && errors.name && <div className={style.error}>{errors.name}</div>}
-                              {touched.email && errors.email && <div style={{display:'inline'}} className={style.error}>{errors.email}</div>}
 
+                              {touched.name && errors.name && <div className={style.error}>{errors.name}</div>}
+                    </div>
+                    <div>
+                      <Field className={style['contact-page__form-element']} name="email" type="text" placeholder="Tu correo electrónico...." />
+
+                              {touched.email && errors.email && <div  className={style.error}>{errors.email}</div>}
+                    </div>
+                  </div>
+                        <div>
                           <Field as="textarea" className={style['contact-page__form-element']} name="message" placeholder="Tu mensaje..."></Field>
-                          {touched.message && errors.message && <div style={{ left: '250px' }} className={style.error}>{errors.message}</div>}
+                          {touched.message && errors.message && <div className={style.error}>{errors.message}</div>}
+                        </div>
+                            
                   <Buttons txt="Enviar" />
               </Form>
              )}

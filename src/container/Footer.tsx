@@ -1,16 +1,16 @@
+import Swal from 'sweetalert2';
 
 import { FaFacebook, FaInstagram, FaTwitch } from 'react-icons/fa'
 import { Buttons } from '../components'
 import { navItems } from '../utils/navItems';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Field, Form, Formik, } from 'formik';
 import { footInitialValue } from '../Formik/initialValues';
+import { footvalidationSchema } from '../Formik/validationSchema';
 
 
 import styleNav from '../style/navbar.module.css'
 import style from '../style/footer.module.css'
-import { footvalidationSchema } from '../Formik/validationSchema';
-import Swal from 'sweetalert2';
 export const Footer = () => {
 
   const handleSubmit = (values: { email: string }, { resetForm }) => {
@@ -52,9 +52,9 @@ export const Footer = () => {
             {touched.email && errors.email && <div className={style.error}>{errors.email}</div>}
         <Buttons txt='Suscribirse' className={style.footerBtn} />
         <div>
-          <a href=""> <FaFacebook size={18} color='white' /> </a>
-          <a href=""> <FaInstagram size={18} color='white' /> </a>
-          <a href=""> <FaTwitch size={18} color='white' /> </a>
+          <Link to="#"> <FaFacebook size={18} color='white' /> </Link>
+          <Link to="#"> <FaInstagram size={18} color='white' /> </Link>
+          <Link to="/"> <FaTwitch size={18} color='white' /> </Link>
         </div>
       </Form>
       )}

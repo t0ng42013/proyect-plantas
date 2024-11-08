@@ -219,6 +219,12 @@ color: #be5a09;
     cursor: pointer;
     z-index: 700;
 }
+
+.menu{
+
+    z-index: 100;
+}
+
 .links,.buttonCustom{
     display: none;
 }
@@ -284,6 +290,7 @@ color: #be5a09;
             color: #000;
             text-transform: capitalize;
             overflow: hidden;
+            z-index: 50;
             li:nth-child(1){
                 &:hover{
                     background-color: #fff;

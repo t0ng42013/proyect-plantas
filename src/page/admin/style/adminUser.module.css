@@ -34,13 +34,14 @@
 }
 .card-body{
     border: solid 1px #777;
+    overflow-x: auto;
 }
 
 .employee-table{
     width: 100%;
 }
 
-.eader-row{
+.header-row{
     border: solid springgreen;
 }
 .header-cell{
@@ -48,6 +49,8 @@
 }
 .table-body .table-row{
     border: solid yellow;
+
+  
 }
 .delete,.update{
     text-align: center;
@@ -90,5 +93,22 @@
     &:hover{
         text-decoration: underline;
         cursor: pointer;
+    }
+}
+
+th,td{
+          @media (max-width: 600px) {
+            max-width: 100px; /* Ancho máximo de las celdas */
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &:hover{
+         white-space: normal;
+      overflow: visible;
+      position: relative;
+      background-color: #f8f8f8;
+      z-index: 1;
     }
 }

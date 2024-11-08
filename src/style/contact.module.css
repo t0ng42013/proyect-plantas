@@ -36,6 +36,14 @@ display: flex;
 .contact-page__form-content{
 display: flex;
 flex-direction: column;
+  div{
+    width: 100%;
+    position: relative;
+
+    input,textarea{
+      width: 100%;
+    }
+  }
 button{
     width: 200px;
 }
@@ -49,14 +57,8 @@ button{
     display: flex;
     gap: 20px;
     position: relative;
-
-    input:nth-child(1){
-        width: 50%;
-    }
-    input:nth-child(2){
-            flex-grow: 1;
-    }
-
+   
+ 
     @media (max-width: 575px) {
       flex-direction: column;
       gap: 0;
@@ -135,6 +137,13 @@ resize: none;
 }
 .error{
   color: red;
-  font-size: 14px;
+  font-size: 12px;
   margin-top: 5px;
+  position: absolute !important;
+  width: max-content !important;
+  border-radius: 8px;
+  padding: 0 12px;
+  left: 12px;
+  top: -12px;
+  background-color: #242424;
 }

@@ -5,6 +5,11 @@
     align-items: center;
     cursor: pointer;
     transition: background-color 0.2s ease;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+        gap: 1rem;
+    }
 }
 
 .suborder-header:hover {

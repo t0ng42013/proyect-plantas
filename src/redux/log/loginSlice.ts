@@ -23,10 +23,11 @@ const loginSlice = createSlice({
     name: 'user',
     initialState: INITIAL_STATE,
     reducers: {
-        createAccount: (state: UsuarioState) => {
+        createAccount: (state: UsuarioState, action?:PayloadAction<boolean>) => {
+                console.log(action?.payload)
             return {
                 ...state,
-                log: !state.log
+                log: action?.payload === undefined ?  !state.log : action.payload
             }
         },
     },
@@ -42,7 +43,7 @@ const loginSlice = createSlice({
                 return user;
             });
         });
-        handleAsync(builder, deleteUserThunk, (state: UsuarioState, action: PayloadAction<UserData>) => {
+        handleAsync(builder, deleteUserThunk, (state: UsuarioState, action: PayloadAction<{id:number , msg:string}>) => {
             showToast(action.payload?.msg)
             state.usuarios = state.usuarios.filter((user) => user.id !== action.payload?.id);
         });
