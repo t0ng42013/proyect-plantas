@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { ActionReducerMapBuilder, createAsyncThunk } from "@reduxjs/toolkit";
 import { createProductSrv, deleteProductSrv, getProduct, updateProductSrv } from "../../services/productServices";
 import { Productos } from "../../interface/Productos";
 
@@ -22,19 +22,26 @@ export const deleteProduct = createAsyncThunk('products/deleteProduct', async (c
     return products;
 })
 
+interface DataState {
+    id?: string;
+    data: Productos[];
+    isLoading: boolean;
+    error: null | string | undefined;
+}
 
-export const handleAsync = (builder: any, thunkAction: any, onSuccess: any) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const handleAsync = (builder: ActionReducerMapBuilder<DataState>, thunkAction: any, onSuccess: (state:DataState,action:any)=>void) => {
     builder
-        .addCase(thunkAction.pending, (state: any) => {
-            state.loading = true;
+        .addCase(thunkAction.pending, (state: DataState) => {
+            state.isLoading = true;
             state.error = null;
         })
-        .addCase(thunkAction.fulfilled, (state: any, action: any) => {
-            state.loading = false;
+        .addCase(thunkAction.fulfilled, (state: DataState , action) => {
+            state.isLoading = false;
             onSuccess(state, action);
         })
-        .addCase(thunkAction.rejected, (state: any, action: any) => {
-            state.loading = false;
-            state.error = action.error.message;
+        .addCase(thunkAction.rejected, (state: DataState, action) => {
+            state.isLoading = false;
+            state.error = action.error?.message as string;
         });
 };

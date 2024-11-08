@@ -13,7 +13,7 @@ import styleNav from '../style/navbar.module.css'
 import style from '../style/footer.module.css'
 export const Footer = () => {
 
-  const handleSubmit = (values: { email: string }, { resetForm }) => {
+  const handleSubmit = (values: { email: string }, { resetForm }: { resetForm: () => void }) => {
     Swal.fire({
       title: '¡Gracias por suscribirte!',
       text: 'Recibirás todas las novedades en tu correo electrónico',

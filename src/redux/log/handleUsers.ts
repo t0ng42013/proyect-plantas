@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { ActionReducerMapBuilder, createAsyncThunk } from "@reduxjs/toolkit";
 import { deleteUser, getAllUsers, updateUser } from "../../services/usersServices";
 import { UserData } from "../../interface/UserData";
 
@@ -19,21 +19,27 @@ export const deleteUserThunk = createAsyncThunk('users/deleteUser', async (crede
     return users;
 });
 
+interface UsuarioState {
+    log: boolean;
+    usuarios: UserData[];
+    isLoading: boolean;
+    error: null;
+}
 
 
-
-export const handleAsync = (builder, thunk, onSucces) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const handleAsync = (builder:ActionReducerMapBuilder<UsuarioState>, thunk:any, onSucces:(state:UsuarioState,action:any)=>void) => {
     builder
         .addCase(thunk.pending, (state) => {
-            state.loading = true;
+            state.isLoading = true;
             state.error = null;
         })
         .addCase(thunk.fulfilled, (state, action) => {
-            state.loading = false;
+            state.isLoading = false;
             onSucces(state, action);
         })
         .addCase(thunk.rejected, (state, action) => {
-            state.loading = false;
+            state.isLoading = false;
             state.error = action.error.message;
         });
 }

@@ -3,7 +3,7 @@ import { useScrollTo } from '../hooks/useScroll';
 import style from '../style/about.module.css';
 
 
-export const About = () => {
+ export const About = () => {
     useScrollTo();
   return (
       <section className={style.about__content} >
@@ -37,3 +37,5 @@ export const About = () => {
 
   )
 }
+
+export default About;

@@ -43,7 +43,7 @@ const commentSlice = createSlice({
         });
 
         handleAsync(builder, deleteCommentsThunk,(state: CommentState, action:PayloadAction<IComments>) => {
-            showToast(action.payload?.msg )
+            showToast(action.payload?.msg || '' )
             state.comments = state.comments.filter(comment => comment.id !== action.payload.id);
         });
     },

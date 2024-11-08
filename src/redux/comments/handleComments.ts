@@ -1,4 +1,5 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ActionReducerMapBuilder, createAsyncThunk, } from "@reduxjs/toolkit";
 import { createComment, deleteComment, getAllComments, updateComment } from "../../services/commentsServices";
 import { IComments } from "../../interface/Comment";
 
@@ -22,20 +23,25 @@ export const deleteCommentsThunk = createAsyncThunk('comments/deleteComments', a
     return comments;
 });
 
+interface CommentState {
+    comments: IComments[];
+    loading: boolean;
+    error: null | string | undefined;
+}
 
-export const handleAsync = (builder,thunk,onSucces) =>{
+export const handleAsync = (builder:ActionReducerMapBuilder<CommentState>,thunk:any,onSucces: (state:CommentState, action:any)=>void) =>{
     builder
-        .addCase(thunk.pending,(state)=>{
+        .addCase(thunk.pending,(state:CommentState)=>{
             state.loading = true;
             state.error = null;
         })
-        .addCase(thunk.fulfilled,(state,action)=>{
+        .addCase(thunk.fulfilled,(state:CommentState,action:CommentState)=>{
             state.loading = false;
             onSucces(state,action);
         })
-        .addCase(thunk.rejected,(state,action)=>{
+        .addCase(thunk.rejected,(state:CommentState,action )=>{
             state.loading = false;
-            state.error = action.error.message;
+            state.error = action.error.message as string;
         })
 }
 

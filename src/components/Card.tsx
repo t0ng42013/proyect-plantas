@@ -28,9 +28,8 @@ export const Card = ({item, dark}:Card) => {
     return (
         <article className={style.productCard}>
             <figure className={style.productImg} onMouseOver={() => setIsHovered(!isHovered)}>
-                 {/* <img src={item.img} alt={item.name} /> */}
-                 {/* <img src={item.imgHover} alt={item.name} /> */}
-                {isHovered ? <img src={item.imgHover} alt={item.name} /> : <img src={item.img} alt={item.name} /> }
+                
+                {isHovered ? <img src={item.imgHover} alt={item.name} loading='lazy'/> : <img src={item.img} alt={item.name}  loading='lazy'/> }
                 {!dark && <span className={style.badge}>Récien llegado</span>}
             </figure>
             <div className={style.productInfo}>

@@ -59,3 +59,5 @@ useEffect(() => {
         </>
     )
 }
+
+export default Plantas;

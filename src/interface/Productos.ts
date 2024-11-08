@@ -1,4 +1,5 @@
 export interface Productos{
+    msg?: string | undefined;
     id?: number;
     name: string;
     img: string;

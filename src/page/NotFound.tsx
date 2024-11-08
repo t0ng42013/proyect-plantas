@@ -33,3 +33,6 @@ const handleNavigate = () =>{
     </div>
   )
 }
+
+
+export default NotFound;

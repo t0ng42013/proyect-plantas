@@ -40,8 +40,8 @@ const productSlice = createSlice({
             })
 
         });
-        handleAsync(builder, deleteProduct, (state: DataState, action: PayloadAction<string>) => {
-            showToast(action.payload?.msg)
+        handleAsync(builder, deleteProduct, (state: DataState, action: PayloadAction<Productos>) => {
+            showToast(action.payload?.msg || '');
             state.data = state.data.filter((product) => product.id !== action.payload?.id);
         });
     }

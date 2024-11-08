@@ -9,6 +9,7 @@ import { useEffect } from "react";
 
 
 import style from '../style/navbar.module.css';
+import { toggleUserLog } from "../redux/log/loginSlice";
 
 export const Account = () => {
   const log = useAppSelector(state => state.user.log);
@@ -27,7 +28,7 @@ export const Account = () => {
   }, [token, nav]);
 
   const handleBtn = () => {
-    // dispatch(createAccount());
+    dispatch(toggleUserLog(!log));
     navigation('/login');
   }
 

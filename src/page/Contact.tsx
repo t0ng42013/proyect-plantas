@@ -15,8 +15,9 @@ export const Contact = () => {
     useScrollTo();
 
 
-const handleSubmit = (values, { resetForm }) => {
+const handleSubmit = (values: unknown, { resetForm }: { resetForm: () => void }) => {
     resetForm();
+    console.log(values)
 }
 
   return (
@@ -77,3 +78,6 @@ const handleSubmit = (values, { resetForm }) => {
     </section>
   )
 }
+
+
+export default Contact;

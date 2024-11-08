@@ -16,7 +16,7 @@ export const Story = () => {
           <div className={style.ourWrapper}>
 
               <div className={style.ourImg}>
-                  <img src="./gerente-pequenas-empresas.jpg" alt="" />
+                  <img src="./gerente-pequenas-empresas.jpg" alt="plantas" loading="lazy"/>
               </div>
               <article className={style.ourStory}>
                   <h3>Para personas que aman las plantas</h3>

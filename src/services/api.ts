@@ -1,9 +1,10 @@
 import axios, { AxiosInstance } from "axios";
-import { handleTokenExpiration, isTokenNearExpiration } from "./jwtServices";
+import { handleTokenExpiration } from "./jwtServices";
 
 //configurar Axios
 const api:AxiosInstance = axios.create({ 
-    baseURL:"http://localhost:8080",
+    // baseURL:"http://localhost:8080",
+    baseURL:"https://back-store-plants.vercel.app/",
     headers:{
         'Content-Type': 'application/json',
     },
@@ -27,41 +28,41 @@ api.interceptors.request.use((config)=>{
 
 
 // Interceptor de respuestas - maneja la renovación del token
-api.interceptors.request.use(async (config) => { 
-    const token = localStorage.getItem('token');
-    if(!token) return config;
+// api.interceptors.request.use(async (config) => { 
+//     const token = localStorage.getItem('token');
+//     if(!token) return config;
 
-    const tokenStatus = isTokenNearExpiration(5);
+//     const tokenStatus = isTokenNearExpiration(5);
 
-    if(tokenStatus === null){
-        handleTokenExpiration();
-        return Promise.reject(new Error('Token expirado'));
-    }
+//     if(tokenStatus === null){
+//         handleTokenExpiration();
+//         return Promise.reject(new Error('Token expirado'));
+//     }
 
-    if(tokenStatus !== false){
+//     if(tokenStatus !== false){
 
-        try {
-            const response = await api.post('/auth/renew',{},{
-                headers:{'x-token': token}
-            });
+//         try {
+//             const response = await api.post('/auth/renew',{},{
+//                 headers:{'x-token': token}
+//             });
 
-            const newToken = response.data.token;
-            localStorage.setItem('token', newToken);
-            config.headers['x-token'] = newToken;
-        } catch (error) {
-            handleTokenExpiration();
-            return Promise.reject(error);            
-        }
+//             const newToken = response.data.token;
+//             localStorage.setItem('token', newToken);
+//             config.headers['x-token'] = newToken;
+//         } catch (error) {
+//             handleTokenExpiration();
+//             return Promise.reject(error);            
+//         }
 
-    }else{
-        config.headers['x-token'] = token;
-    }
+//     }else{
+//         config.headers['x-token'] = token;
+//     }
     
-    return config;
-}, error => {
-    // Rechaza la promesa con el error
-    return Promise.reject(error);
-});
+//     return config;
+// }, error => {
+//     // Rechaza la promesa con el error
+//     return Promise.reject(error);
+// });
 
 // Interceptor de respuestas
 api.interceptors.response.use(
