@@ -10,7 +10,7 @@ export const CardBlog = () => {
     return (
         <article style={{maxWidth:'450px'}} className={style.productCard}>
             <figure className={style.productI}>
-                <img src="https://static.wixstatic.com/media/c837a6_326af6b8497c48cda62de734820ce3a5~mv2.jpg/v1/fill/w_568,h_319,fp_0.50_0.50,q_90,enc_auto/c837a6_326af6b8497c48cda62de734820ce3a5~mv2.jpg" alt="" />
+                <img src="/blog1" alt="plantas" />
             </figure>
 
             <div className={style.productInfoBlog}>

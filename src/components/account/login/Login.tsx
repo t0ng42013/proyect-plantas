@@ -58,6 +58,7 @@ const Login = () => {
                                         name="nameOrEmail"
                                         placeholder="Usuario o Email"
                                         type="text"
+                                        autocomplete="off"
                                     />
                                     {touched.nameOrEmail && errors.nameOrEmail && <div className={style.error}>{errors.nameOrEmail}</div>}
                                 </div>
@@ -68,6 +69,7 @@ const Login = () => {
                                         className={`${style.inputGroup} ${touched.password && style.borderError} `}
                                         name="password"
                                         type="password"
+                                        autocomplete="off"
                                         placeholder="Password"
                                     />
                                     {touched.password && errors.password && <div className={style.error}>{errors.password}</div>}

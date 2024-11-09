@@ -48,6 +48,7 @@ export const Footer = () => {
         <Field
           name="email"
           type="email"
+              autoComplete="email"
               className={`${style.footerInput} ${errors.email && style.foortBorError}`}
           placeholder='Su dirección de correo electrónico...' />
             {touched.email && errors.email && <div className={style.error}>{errors.email}</div>}
