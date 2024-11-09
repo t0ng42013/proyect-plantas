@@ -10,7 +10,9 @@ export const CardBlog = () => {
     return (
         <article style={{maxWidth:'450px'}} className={style.productCard}>
             <figure className={style.productI}>
-                <img src="/blog1" alt="plantas" />
+                {/* <img src="/blog1.webp" alt="plantas" /> */}
+                <source media="(max-width: 600px)" srcSet="/logoMobile.webp" />
+                <img src="/logo2.webp" alt="planta" />
             </figure>
 
             <div className={style.productInfoBlog}>
