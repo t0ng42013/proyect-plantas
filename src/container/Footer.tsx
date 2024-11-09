@@ -21,6 +21,7 @@ export const Footer = () => {
       confirmButtonText: 'Aceptar'      
     }).then(() => {
       resetForm(); // Esto limpiará los valores del formulario
+      console.log(values)
     });
     
   }
