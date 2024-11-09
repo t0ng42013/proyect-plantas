@@ -18,13 +18,13 @@ export const AdminProducts = () => {
 
 
 
-  const INITIAL_STATE:ModalStateProps = {
+  const INITIAL_STATE: ModalStateProps = {
     isOpen: false,
     action: '',
-    selectedProduct: {
+    selected: {
       name: '',
       img: '',
-      imgHover:'',
+      imgHover: '',
       price: 0,
       stock: 0,
       describe: '',
@@ -37,12 +37,12 @@ export const AdminProducts = () => {
 
 
   //funcion para modal
-  const handleModal = (action: string, productCurrent: Productos = INITIAL_STATE.selectedProduct) => {
+  const handleModal = (action: string, productCurrent: Productos = INITIAL_STATE.selected) => {
     setModal((prevState) => ({
       ...prevState,
       isOpen: !prevState.isOpen,
       action,
-      selectedProduct: productCurrent,
+      selected: productCurrent,
     }));
   };
 
@@ -98,14 +98,14 @@ export const AdminProducts = () => {
 
         <div
           className={style.add}
-          onClick={() => handleModal('create', INITIAL_STATE.selectedProduct)}>
+          onClick={() => handleModal('create', INITIAL_STATE.selected)}>
           <span>Agruegar Producto</span>
           <span>
             <BiPlus color='orange' size={40} />
           </span>
         </div>
         {
-          modal.isOpen && <ADMmodal data={data} handleModal={handleModal} action={modal.action} selected={modal.selectedProduct} entityType={'product'}/>
+          modal.isOpen && <ADMmodal data={data} handleModal={handleModal} action={modal.action} selected={modal.selected} entityType={'product'} />
         }
       </article>
     </div>
