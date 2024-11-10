@@ -1,13 +1,16 @@
 import useMessageToggle from '../hooks/useMessageToggle';
-
-import { Footer } from './Footer';
+import { lazy } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { Header } from './Header';
 import { Navbars } from './Navbars';
-import { Outlet, useNavigate } from 'react-router-dom';
-import { Services } from './Services';
+import { SuspenseWrapper } from '../components/SuspenseWrapper';
+
 
 
 import style from '../style/navbar.module.css';
+
+const Footer = lazy(() => import('../container/Footer')); 
+const Services = lazy(() => import('../container/Services'));
 
 export const Layout = () => {
 const nav = useNavigate();
@@ -29,10 +32,13 @@ const nav = useNavigate();
             </Header>
             <main>
                 <Outlet />
-                <Services />
+                <SuspenseWrapper Component={Services } />
+                   
+                
             </main>
 
-            <Footer></Footer>
+        
+                <SuspenseWrapper Component={Footer}/>
         </>
     )
 }

@@ -2,12 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "../container/Layout";
 import { Home } from "../page/Home";
 import { ProtectedRoute } from "./ProtectedRoute";
-import { AdminLayouts } from "../layouts/AdminLayouts";
-import { AdminProducts } from "../page/admin/AdminProducts";
-import { Orders } from "../page/Orders";
-import { AdminDashboard } from "../page/admin/AdminDashboard";
-import { AdminUsers } from "../page/admin/AdminUsers";
-import { AdminComment } from "../page/admin/AdminComment";
 import { SuspenseWrapper } from "../components/SuspenseWrapper";
 import { lazyRoutes } from "./lazyRoutes";
 import { RouteConfig, ProcessedRoute } from "./types";
@@ -35,10 +29,6 @@ const routes: RouteConfig[] = [
         Component: lazyRoutes.Log
       },
       {
-        path: '/signup',
-        Component: Home
-      },
-      {
         path: '/contact',
         Component: lazyRoutes.Contact
       }
@@ -51,7 +41,7 @@ const routes: RouteConfig[] = [
       {
         path: '',
         index: true,
-        Component: Orders
+        Component: lazyRoutes.Orders
       }
     ]
   },
@@ -61,24 +51,24 @@ const routes: RouteConfig[] = [
     children: [
       {
         path: '',
-        Component: AdminLayouts,
+        Component: lazyRoutes.AdminLayouts,
         children: [
           {
             index: true,
             path: '',
-            Component: AdminDashboard
+            Component: lazyRoutes.AdminDashboard
           },
           {
             path: 'products',
-            Component: AdminProducts
+            Component: lazyRoutes.AdminProducts
           },
           {
             path: 'comments',
-            Component: AdminComment
+            Component: lazyRoutes.AdminComment
           },
           {
             path: 'users',
-            Component: AdminUsers
+            Component: lazyRoutes.AdminUsers
           }
         ]
       }

@@ -79,3 +79,4 @@ export const AdminComment = () => {
   )
   
 }
+export default AdminComment;

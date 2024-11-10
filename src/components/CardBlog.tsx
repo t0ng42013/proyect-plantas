@@ -10,13 +10,12 @@ export const CardBlog = () => {
     return (
         <article style={{maxWidth:'450px'}} className={style.productCard}>
             <figure className={style.productI}>
-                {/* <img src="/blog1.webp" alt="plantas" /> */}
                 <source media="(max-width: 600px)" srcSet="/logoMobile.webp" />
                 <img src="/logo2.webp" alt="planta" />
             </figure>
 
             <div className={style.productInfoBlog}>
-                <span className={style.productFecha}>1 dic 2022 . 1 min.</span>
+                <span style={{color:'black'}} className={style.productFecha}>1 dic 2022 . 1 min.</span>
                 <h2 className={style.productName}>Como cambiar la Maceta</h2>
                 <p className={style.productText}>
                     Crea un subtítulo para la entrada del blog que resuma dicha publicación en un par de oraciones e invite a tu audiencia a continuar...

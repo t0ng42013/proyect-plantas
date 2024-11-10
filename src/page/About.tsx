@@ -8,7 +8,6 @@ import style from '../style/about.module.css';
   return (
       <section className={style.about__content} >
           <picture>
-              {/* <img src="https://images.pexels.com/photos/268261/pexels-photo-268261.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="platas" /> */}             
           </picture>
           <div className={style['about__content-story']}>
               <h3>El comienzo</h3>

@@ -1,16 +1,15 @@
-// import { PiPottedPlantFill } from "react-icons/pi"
 import { Link } from "react-router-dom"
 
 
 export const Logo = () => {
     return (
-        <div >
-            <h1 className={''}>
-                <Link to="/">
-                    <img loading="lazy" style={{ width: 'clamp(120px, 4vw, 150px)', position:'absolute',translate:'-20% -20%',zIndex:'1'}} src="/logo3.webp" alt="logo" />
-                    {/* <PiPottedPlantFill size={62} /> */}
-                </Link>
-            </h1>
-        </div>
+            <Link to="/">
+        <picture>
+                <source media="(max-width: 600px)" srcSet="/logoMobile.webp" type="image/webp" />
+                <img width={150}  loading="eager"  style={{ width: 'clamp(50px, 9vw, 150px)',margin:'10px', zIndex: '1' }} src="/logo.webp" alt="logo" />
+        </picture>
+            </Link>
+
+
     )
 }

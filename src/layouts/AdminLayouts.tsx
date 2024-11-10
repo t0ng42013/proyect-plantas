@@ -57,3 +57,5 @@ export const AdminLayouts = () => {
         </div>
     )
 }
+
+export default AdminLayouts;

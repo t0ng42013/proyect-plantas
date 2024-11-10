@@ -33,3 +33,5 @@ export const AdminDashboard = () => {
     </section>
   )
 }
+
+export default AdminDashboard;
