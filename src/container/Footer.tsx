@@ -54,9 +54,9 @@ export const Footer = () => {
             {touched.email && errors.email && <div className={style.error}>{errors.email}</div>}
         <Buttons txt='Suscribirse' className={style.footerBtn} />
         <div>
-          <Link to="#"> <FaFacebook size={18} color='white' /> </Link>
-          <Link to="#"> <FaInstagram size={18} color='white' /> </Link>
-          <Link to="/"> <FaTwitch size={18} color='white' /> </Link>
+              <Link to="#" aria-label="Facebook"> <FaFacebook size={18} color='white' /> </Link>
+              <Link to="#" aria-label="Instagram"> <FaInstagram size={18} color='white' /> </Link>
+              <Link to="#" aria-label="Twitch"> <FaTwitch size={18} color='white' /> </Link>
         </div>
       </Form>
       )}

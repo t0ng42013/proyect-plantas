@@ -15,7 +15,7 @@ export const Navbar = () => {
                 {
                     navItems.map(({ path, label }) => (
                         <li key={label}  >
-                            <NavLink className={({ isActive }) => ` ${isActive ? styles.active : ''}`} to={path}>
+                            <NavLink aria-label={label} className={({ isActive }) => ` ${isActive ? styles.active : ''}`} to={path}>
                                 {label}
                             </NavLink>
                         </li>

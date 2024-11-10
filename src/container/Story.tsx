@@ -15,9 +15,10 @@ export const Story = () => {
         <span className={style.story}>Nuestra Historia</span>
           <div className={style.ourWrapper}>
 
-              <div className={style.ourImg}>
-                  <img src="./gerente-pequenas-empresas.jpg" alt="plantas" loading="lazy"/>
-              </div>
+              <picture className={style.ourImg}>
+                  <source media="(max-width: 600px)" sizes="" srcSet="/gerente-pequenas-empresas-Mobile.webp"/>
+                  <img src="/gerente-pequenas-empresas.jpg" alt="plantas" loading="lazy"/>
+              </picture>
               <article className={style.ourStory}>
                   <h3>Para personas que aman las plantas</h3>
                   <p>
