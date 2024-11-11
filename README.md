@@ -99,36 +99,36 @@ El frontend se comunica con el backend a través de **Axios** utilizando **JWT**
 
 | Método | Endpoint | Descripción | Autorización |
 |--------|----------|-------------|--------------|
-| GET | `/api/products` | Obtiene todos los productos | Público |
-| POST | `/api/products` | Crea un nuevo producto | Admin |
-| PUT | `/api/products/:id` | Actualiza un producto | Admin |
-| DELETE | `/api/products/:id` | Elimina un producto | Admin |
+| GET | `/products` | Obtiene todos los productos | Público |
+| POST | `/products` | Crea un nuevo producto | Admin |
+| PUT | `/products/:id` | Actualiza un producto | Admin |
+| DELETE | `/products/:id` | Elimina un producto | Admin |
 
 ### Usuario
 
 | Método | Endpoint | Descripción | Autorización |
 |--------|----------|-------------|--------------|
-| POST | `/api/auth/register` | Registra un nuevo usuario | Público |
-| POST | `/api/auth/login` | Inicia sesión | Usuario |
-| GET | `/api/user` | Obtiene todos los usuarios | Admin |
-| POST | `/api/user/:id` | Actualiza un producto | Admin |
-| POST | `/api/user/:id` | Elimina un producto | Admin |
+| POST | `/auth/register` | Registra un nuevo usuario | Público |
+| POST | `/auth/login` | Inicia sesión | Usuario |
+| GET | `/user` | Obtiene todos los usuarios | Admin |
+| POST | `/user/:id` | Actualiza un producto | Admin |
+| POST | `/user/:id` | Elimina un producto | Admin |
 
 ### Comenatarios
 
 | Método | Endpoint | Descripción | Autorización |
 |--------|----------|-------------|--------------|
-| GET | `/api/comments` | Obtiene todos los comentarios | Público |
-| POST | `/api/comments` | Crea un nuevo comentario | Usuario o Admin |
-| PUT | `/api/comments/:id` | Actualiza un comentario | Usuario o Admin |
-| DELETE | `/api/comments/:id` | Elimina un comentario | Admin |
+| GET | `/comments` | Obtiene todos los comentarios | Público |
+| POST | `/comments` | Crea un nuevo comentario | Usuario o Admin |
+| PUT | `/comments/:id` | Actualiza un comentario | Usuario o Admin |
+| DELETE | `/comments/:id` | Elimina un comentario | Admin |
 
 
 ### Órdenes
 | Método | Endpoint | Descripción | Autorización |
 |--------|----------|-------------|--------------|
-| GET | `/api/orders` | Obtiene todas las órdenes | Usuario |
-| POST | `/api/orders` | Crea una nueva orden | Usuario |
+| GET | `/orders` | Obtiene todas las órdenes | Usuario |
+| POST | `/orders` | Crea una nueva orden | Usuario |
 
 
 ## 🔐Flujo de Autenticación
