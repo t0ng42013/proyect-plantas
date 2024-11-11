@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { llegados } from '../utils/RecLlegados';
 import { useEffect } from 'react';
 import { getProducts } from '../redux/data/helperProduct';
+import { ModalBuy } from '../components/ModalBuy';
 
 export const Products = () => {
 
@@ -38,7 +39,7 @@ export const Products = () => {
 
           llegados(data,4).map(item => (<Card key={item.id} item={item}/>))
         }
-
+        <ModalBuy></ModalBuy>
       </div>
 
     </section>

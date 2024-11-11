@@ -18,48 +18,51 @@ export const Footer = () => {
       title: '¡Gracias por suscribirte!',
       text: 'Recibirás todas las novedades en tu correo electrónico',
       icon: 'success',
-      confirmButtonText: 'Aceptar'      
+      confirmButtonText: 'Aceptar'
     }).then(() => {
       resetForm(); // Esto limpiará los valores del formulario
       console.log(values)
     });
-    
+
   }
 
   return (
-    
+
     <footer className={style.footer}>
       <div className={style['footer__container-nav']}>
         <ul>
-          {navItems.map(({path,label})=>(
-            <NavLink key={label} className={({isActive})=>`${isActive?styleNav.active:''}`} to={path}>{label}</NavLink>
+          {navItems.map(({ path, label }) => (
+            <NavLink key={label} className={({ isActive }) => `${isActive ? styleNav.active : ''}`} to={path}>{label}</NavLink>
           ))}
         </ul>
       </div>
       <Formik
-       initialValues={footInitialValue}
+        initialValues={footInitialValue}
         validationSchema={footvalidationSchema}
-        onSubmit={handleSubmit} 
+        onSubmit={handleSubmit}
       >
-        
-     {({errors,touched})=>(
-      <Form className={style.footer__form} action="">
-        <h3>Suscríbete a nuestro boletín</h3>
-        <Field
-          name="email"
-          type="email"
-              autoComplete="email"
-              className={`${style.footerInput} ${errors.email && style.foortBorError}`}
-          placeholder='Su dirección de correo electrónico...' />
-            {touched.email && errors.email && <div className={style.error}>{errors.email}</div>}
-        <Buttons txt='Suscribirse' className={style.footerBtn} />
-        <div>
+
+        {({ errors, touched }) => (
+          <Form className={style.footer__form} action="">
+            <h3>Suscríbete a nuestro boletín</h3>
+            <div className={style.footer__formInput}>
+              <Field
+                name="email"
+                type="email"
+                autoComplete="email"
+                className={`${style.footerInput} ${errors.email && style.foortBorError}`}
+                placeholder='Su dirección de correo electrónico...' />
+              {touched.email && errors.email && <div className={style.error}>{errors.email}</div>}
+              <Buttons txt='Suscribirse' className={style.footerBtn} />
+            </div>
+
+            <div>
               <Link to="#" aria-label="Facebook"> <FaFacebook size={18} color='white' /> </Link>
               <Link to="#" aria-label="Instagram"> <FaInstagram size={18} color='white' /> </Link>
               <Link to="#" aria-label="Twitch"> <FaTwitch size={18} color='white' /> </Link>
-        </div>
-      </Form>
-      )}
+            </div>
+          </Form>
+        )}
       </Formik>
       <hr className={style.hr} />
       <div className={style.copy}>

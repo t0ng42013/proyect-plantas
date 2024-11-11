@@ -51,7 +51,6 @@ export const Register = () => {
                                         name="name"
                                         placeholder="Usuario..."
                                         type="text"
-                                        autoComplete="username"
                                     />
                                     {touched.name && errors.name && <div className={style.error}>{errors.name}</div>}
                                 </div>
@@ -63,7 +62,6 @@ export const Register = () => {
                                         name="email"
                                         placeholder="Email..."
                                         type="email"
-                                        autoComplete="email"
                                     />
                                     {touched.email && errors.email && <div className={style.error}>{errors.email}</div>}
                                 </div>
@@ -75,7 +73,6 @@ export const Register = () => {
                                         name="password"
                                         type="password"
                                         placeholder="Contraseña..."
-                                        autoComplete="new-password"
                                     />
                                     {touched.password && errors.password && <div className={style.error}>{errors.password}</div>}
                                 </div>
@@ -87,7 +84,6 @@ export const Register = () => {
                                         name="confirmPassword"
                                         type="password"
                                         placeholder="Confirmar contraseña..."
-                                        autoComplete="new-password"
                                     />
                                     {touched.confirmPassword && errors.confirmPassword && <div className={style.error}>{errors.confirmPassword}</div>}
                                 </div>
@@ -97,7 +93,7 @@ export const Register = () => {
                                     type="submit" className={style.submitBtn}>
                                     {isLoading ? 'Cargandoo...' : 'Crear cuenta'}
                                 </button>
-
+                                
                                 {error && <p style={{ color: 'red' }}>{error !== 'Errores: Invalid value' ? error.replace('Errores:', '') : 'El valor ingresado no es válido.'}</p>}
                             </Form>
                         )}

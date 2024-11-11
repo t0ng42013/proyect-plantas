@@ -24,7 +24,6 @@ const loginSlice = createSlice({
     initialState: INITIAL_STATE,
     reducers: {
         toggleUserLog: (state: UsuarioState, action: PayloadAction<boolean>) => {
-            console.log(action?.payload)
             return {
                 ...state,
                 log: action?.payload === undefined ? !state.log : action.payload

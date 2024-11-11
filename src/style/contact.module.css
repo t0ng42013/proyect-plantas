@@ -132,9 +132,7 @@ resize: none;
     color: var(--color-accent);
     cursor: pointer;
 }
-.contact-page__section {
-  /* Additional section styles if needed */
-}
+
 .error{
   color: red;
   font-size: 12px;

@@ -56,9 +56,9 @@ a{
         box-sizing: border-box;
         background-color: aliceblue;
         
-        @media (max-width: 768px) {
-            width: 100%;
-        }
+    }
+    @media (max-width: 768px) {
+        width: 80%;
     }
 
     div{
@@ -112,4 +112,29 @@ a{
     margin: 10px;
     border-radius: 5px;
     text-align: center;
+}
+.footer__formInput{
+    position: relative;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-end !important;
+        input{
+            width: 100%;
+        }
+       
+    }
+}
+
+.error{
+    color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  position: absolute !important;
+  width: max-content !important;
+  border-radius: 8px;
+  padding: 0 12px;
+  left: 20px;
+  top: -20px;
+  background-color: #141a0ff5;
 }
