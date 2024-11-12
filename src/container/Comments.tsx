@@ -71,15 +71,11 @@ export const Comments = () => {
     return (
         <article className={style.cardContainer}>
             <h2 className={style.article__title}> lo Que dicen nuestros clientes
-                <span
-                    onClick={handleComments}
-                >
-                    <RiPlayListAddLine size={32} />
-                </span>
+                <span onClick={handleComments}> <RiPlayListAddLine size={32} /> </span>
             </h2>
 
             <div className={style.article__spacer}>
-                <span className=''></span>
+                <span></span>
             </div>
 
             <div className={style.article__cards}>
